@@ -837,9 +837,12 @@
          margin-left: 5px;
          }
          .login-view {
-         padding-left: 28px;
-         padding-top: 60px;
-         }
+          max-width: 600px;
+          box-sizing: border-box;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
+          padding: 48px 24px;
+          margin: 48px auto;
+          }
          .login-view p.p-with-button {
          line-height: 32px;
          }
@@ -860,7 +863,9 @@
          margin-left: 0px;
          }
          .login-view h1 {
-         font-size: 32px;
+          font-size: 32px;
+          color: rgba(0, 0, 0, 0.87);
+         font-family: Bree-SH-Text, Arial;
          }
          .mobile-view {
          background-color: #fff;
@@ -1303,11 +1308,7 @@
          font-weight: normal;
          font-style: normal;
          }
-         {
-         -webkit-box-sizing: border-box;
-         -moz-box-sizing: border-box;
-         box-sizing: border-box;
-         }
+         
          html,
          body {
          height: 100% !important;
@@ -2425,7 +2426,7 @@
          /* box-sizing: border-box; */
          }
          body {
-         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+             font-family: Open-Sans-Regular, Bree-SH-Text, Arial;
          font-size: 14px;
          line-height: 1.42857143;
          color: #333;
@@ -2948,10 +2949,10 @@
                         <span>
                            <div class="login-view">
                               <div class="row mx-0">
-                                 <form id="login-form" class="col-md-9">
+                                 <form id="login-form" class="col-md-12">
                                     <h1 class="m-0 mb-2 padding-bottom-12" data-translate = "Login"></h1>
                                     <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-12">
                                           <div class="standard-input text required" type="text" label="Email" required="required">
                                              <div class="input-wrapper">
                                                 <input id="email" name="email" type="text" required="">
@@ -2961,7 +2962,7 @@
                                        </div>
                                     </div>
                                     <div class="row" id="password-row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-12">
                                           <div class="standard-input password required"  type="password" label="Password" required="required">
                                              <div class="input-wrapper">
                                                 <input id="password" name="password" type="password" required="">
@@ -2999,7 +3000,7 @@
                            <div class="login-view py-4 ng-scope">
                               <div class="row mx-0">
                                  <!-- ngIf: !registerModel.isRegisrationSuccess -->
-                                 <form id="register-form" class="col-xs-12 col-md-9">
+                                 <form id="register-form" class="col-xs-12 col-md-12">
                                     <h1 class="m-0 mb-2 ng-binding">Register</h1>
                                     <!-- ngIf: registerModel.form.message -->
                                     <p class="ng-binding">
@@ -3007,7 +3008,7 @@
                                     </p>
                                     <div class="row fields">
                                        <div class="row">
-                                          <div class="col-md-6">
+                                          <div class="col-md-12">
                                              <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required text required" ng-class="{ 'standard-input-error': error, text: type,'required':required }" standard-input="" ng-model="registerModel.form.fields.email.value" on-validate="registerModel.form.fields.email.validate()" error="" type="text" label="Email" test-id="RegistrationEmail" required="required">
                                                 <div class="input-wrapper">
                                                    <input id="email-reg" name="email-reg" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="text" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationEmail" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
@@ -3018,7 +3019,7 @@
                                           </div>
                                        </div>
                                        <div class="row">
-                                          <div class="col-md-6">
+                                          <div class="col-md-12">
                                              <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required text required" ng-class="{ 'standard-input-error': error, text: type,'required':required }" standard-input="" ng-model="registerModel.form.fields.firstName.value" on-validate="registerModel.form.fields.firstName.validate()" error="" type="text" label="First name" test-id="RegistrationFirstName" required="required">
                                                 <div class="input-wrapper">
                                                    <input id="firstName" name="firstName" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="text" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationFirstName" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
@@ -3029,7 +3030,7 @@
                                           </div>
                                        </div>
                                        <div class="row">
-                                          <div class="col-md-6">
+                                          <div class="col-md-12">
                                              <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required text required" ng-class="{ 'standard-input-error': error, text: type,'required':required }" standard-input="" ng-model="registerModel.form.fields.lastName.value" on-validate="registerModel.form.fields.lastName.validate()" error="" type="text" label="Last name" test-id="RegistrationLastName" required="required">
                                                 <div class="input-wrapper">
                                                    <input id="lastName" name="lastName" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="text" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationLastName" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
@@ -3040,7 +3041,7 @@
                                           </div>
                                        </div>
                                        <div class="row">
-                                          <div class="col-md-6">
+                                          <div class="col-md-12">
                                              <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required password required" ng-class="{ 'standard-input-error': error, password: type,'required':required }" standard-input="" ng-model="registerModel.form.fields.password.value" on-validate="registerModel.form.fields.password.validate()" error="" type="password" label="Password" test-id="RegistrationPassword" required="required">
                                                 <div class="input-wrapper">
                                                    <input id="password-reg" name="password-reg" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="password" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationPassword" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
@@ -3051,7 +3052,7 @@
                                           </div>
                                        </div>
                                        <div class="row">
-                                          <div class="col-md-6">
+                                          <div class="col-md-12">
                                              <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required password required" ng-class="{ 'standard-input-error': error, password: type,'required':required }" standard-input="" ng-model="registerModel.form.fields.passwordConfirmation.value" on-validate="registerModel.form.fields.passwordConfirmation.validate()" error="" type="password" label="Retype password" test-id="RegistrationPasswordConfirm" required="required">
                                                 <div class="input-wrapper">
                                                    <input id="passwordConfirmation" name="email" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="password" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationPasswordConfirm" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
@@ -3064,7 +3065,7 @@
                                        <div class="row">
                                           <div class="col-sm-12 ng-isolate-scope" privacy-policy-selector="" country-field="registerModel.form.fields.country" privacy-policy-field="registerModel.form.fields.privacyPolicy" test-id="privacyPolicy">
                                              <div class="row">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-12">
                                                    <div class="standard-select-box ng-isolate-scope required" ng-class="{ 'standard-select-error': error , 'required':true}" standard-select-box="" field="countryField" options="avaliableLanguages" on-change="onCountryChange" key="name" value="iso2" on-validate="countryField.validate()" error="" label="Country" placeholder="Country" required="required">
                                                       <div class="input-wrapper">
                                                          <select id="id132" ng-model="field.value" >
@@ -3209,7 +3210,7 @@
                <footer>
                   <div class="login-footer" style="display: inline-block; width: 100%;">
                      <div class="col-xs-12 col-sm-8 top-footer-link">
-                        © <span>Siemens Healthcare GmbH 2016-2017, <span data-translate="All Rights Reserved"></span></span>
+                        © <span>Siemens Healthcare GmbH 2017-2018, <span data-translate="All Rights Reserved"></span></span>
                         <span class="seperator">-</span>
                         <a href="https://www.healthcare.siemens.com/corporate-info" target="_blank" translate="" data-translate="Corporate Information"></a>
                         <span class="seperator">|</span>
@@ -3412,7 +3413,6 @@
     xmlhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
              documentList = JSON.parse(this.responseText);
-             
              countries.forEach(country => {
                countryDocuments = documentList.filter(function( document ) {
                   if(country.name === document.Country){
@@ -3432,7 +3432,6 @@
                   }
                 });
              }); 
-          
         }
     };
     xmlhttp.open("GET","https://users-service-dev.test.teamplay.siemens.com/api/agreement?docTypes=DataPrivacyPolicy", true);
