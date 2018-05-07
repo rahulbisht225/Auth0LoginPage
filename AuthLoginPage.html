@@ -3001,9 +3001,9 @@
                               <div class="row mx-0">
                                  <!-- ngIf: !registerModel.isRegisrationSuccess -->
                                  <form id="register-form" class="col-xs-12 col-md-12">
-                                    <h1 class="m-0 mb-2 ng-binding">Register</h1>
+                                    <h1 class="m-0 mb-2 ng-binding" data-translate="Register" ></h1>
                                     <!-- ngIf: registerModel.form.message -->
-                                    <p class="ng-binding">
+                                    <p class="ng-binding" data-translate="Register for your teamplay account in order to proceed.">
                                        Register for your teamplay account in order to proceed.
                                     </p>
                                     <div class="row fields">
@@ -3012,7 +3012,7 @@
                                              <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required text required" ng-class="{ 'standard-input-error': error, text: type,'required':required }" standard-input="" ng-model="registerModel.form.fields.email.value" on-validate="registerModel.form.fields.email.validate()" error="" type="text" label="Email" test-id="RegistrationEmail" required="required">
                                                 <div class="input-wrapper">
                                                    <input id="email-reg" name="email-reg" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="text" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationEmail" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
-                                                   <label for="email-reg"><span class="ng-binding">Email</span></label>
+                                                   <label for="email-reg"><span class="ng-binding" data-translate="Email">Email</span></label>
                                                 </div>
                                                 <cite ng-show="error" class="ng-binding ng-hide"></cite>
                                              </div>
@@ -3023,7 +3023,7 @@
                                              <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required text required" ng-class="{ 'standard-input-error': error, text: type,'required':required }" standard-input="" ng-model="registerModel.form.fields.firstName.value" on-validate="registerModel.form.fields.firstName.validate()" error="" type="text" label="First name" test-id="RegistrationFirstName" required="required">
                                                 <div class="input-wrapper">
                                                    <input id="firstName" name="firstName" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="text" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationFirstName" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
-                                                   <label for="firstName"><span class="ng-binding">First name</span></label>
+                                                   <label for="firstName"><span class="ng-binding" data-translate="First name">First name</span></label>
                                                 </div>
                                                 <cite ng-show="error" class="ng-binding ng-hide"></cite>
                                              </div>
@@ -3034,7 +3034,7 @@
                                              <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required text required" ng-class="{ 'standard-input-error': error, text: type,'required':required }" standard-input="" ng-model="registerModel.form.fields.lastName.value" on-validate="registerModel.form.fields.lastName.validate()" error="" type="text" label="Last name" test-id="RegistrationLastName" required="required">
                                                 <div class="input-wrapper">
                                                    <input id="lastName" name="lastName" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="text" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationLastName" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
-                                                   <label for="lastName"><span class="ng-binding">Last name</span></label>
+                                                   <label for="lastName"><span class="ng-binding" data-translate="Last name">Last name</span></label>
                                                 </div>
                                                 <cite ng-show="error" class="ng-binding ng-hide"></cite>
                                              </div>
@@ -3045,7 +3045,7 @@
                                              <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required password required" ng-class="{ 'standard-input-error': error, password: type,'required':required }" standard-input="" ng-model="registerModel.form.fields.password.value" on-validate="registerModel.form.fields.password.validate()" error="" type="password" label="Password" test-id="RegistrationPassword" required="required">
                                                 <div class="input-wrapper">
                                                    <input id="password-reg" name="password-reg" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="password" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationPassword" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
-                                                   <label for="password-reg"><span class="ng-binding">Password</span></label>
+                                                   <label for="password-reg"><span class="ng-binding" data-translate="Password">Password</span></label>
                                                 </div>
                                                 <cite ng-show="error" class="ng-binding ng-hide"></cite>
                                              </div>
@@ -3056,7 +3056,7 @@
                                              <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required password required" ng-class="{ 'standard-input-error': error, password: type,'required':required }" standard-input="" ng-model="registerModel.form.fields.passwordConfirmation.value" on-validate="registerModel.form.fields.passwordConfirmation.validate()" error="" type="password" label="Retype password" test-id="RegistrationPasswordConfirm" required="required">
                                                 <div class="input-wrapper">
                                                    <input id="passwordConfirmation" name="email" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="password" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationPasswordConfirm" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
-                                                   <label for="passwordConfirmation"><span class="ng-binding">Retype password</span></label>
+                                                   <label for="passwordConfirmation"><span class="ng-binding" data-translate="Retype password">Retype password</span></label>
                                                 </div>
                                                 <cite ng-show="error" class="ng-binding ng-hide"></cite>
                                              </div>
@@ -3069,7 +3069,7 @@
                                                    <div class="standard-select-box ng-isolate-scope required" ng-class="{ 'standard-select-error': error , 'required':true}" standard-select-box="" field="countryField" options="avaliableLanguages" on-change="onCountryChange" key="name" value="iso2" on-validate="countryField.validate()" error="" label="Country" placeholder="Country" required="required">
                                                       <div class="input-wrapper">
                                                          <select id="id132" ng-model="field.value" >
-                                                            <option value="" disabled="" style="display: none;" class="ng-binding" selected="selected">Country</option>
+                                                            <option value="" disabled="" style="display: none;" class="ng-binding" selected="selected" data-translate="Country">Country</option>
                                                             <!-- ngRepeat: item in options -->
                                                             <option value="ar" ng-repeat="item in options" class="ng-binding ng-scope">Argentina</option>
                                                             <!-- end ngRepeat: item in options -->
@@ -3170,7 +3170,7 @@
                                                    <div class="input-wrapper">
                                                       <span>
                                                       <input id="privacyPolicyChkBox" type="checkbox" ng-model="privacyPolicyField.checkboxState" ng-disabled="!privacyPolicy.DocumentId" ng-change="onPrivacyPolicyCheck()" data-test-id="privacyPolicyCheckbox" class="ng-pristine ng-untouched ng-valid ng-empty" disabled="disabled">
-                                                      <label for="privacyPolicyChkBox" class="ng-binding">
+                                                      <label for="privacyPolicyChkBox" class="ng-binding" data-translate=" I accept the">
                                                       I accept the
                                                       </label>
                                                       </span>
@@ -3184,11 +3184,14 @@
                                                    <cite class="padding-left-6 ng-binding"></cite>
                                                 </div>
                                              </div>
+											 
+											 
+											 
                                           </div>
                                        </div>
                                        <div class="row zero-margin-top">
                                           <div class="margin-top-24 margin-bottom-30 col-sm-6">
-                                             <a id="btn-signup" class="pull-left simple-button-color simple-button ng-binding ng-isolate-scope" ng-click="handleClick($event)" ng-disabled="isDisabled" data-test-id="UserRegistration " simple-button="" icon="icon-arrow-right-large" label="Register" on-click="registerModel.form.submit($event)" is-disabled="registerModel.form.isSubmitting" is-loading="registerModel.form.isSubmitting" tabindex="0">
+                                             <a id="btn-signup" class="pull-left simple-button-color simple-button ng-binding ng-isolate-scope" ng-click="handleClick($event)" ng-disabled="isDisabled" data-test-id="UserRegistration " simple-button="" icon="icon-arrow-right-large" label="Register" on-click="registerModel.form.submit($event)" is-disabled="registerModel.form.isSubmitting" is-loading="registerModel.form.isSubmitting" tabindex="0" data-translate="Register">
                                              <i class="icon-arrow-right-large"></i>
                                              Register
                                              </a>
@@ -3266,7 +3269,14 @@
 			'Corporate Information':'Corporate Information',
 			'Terms of Use':'Terms of Use',
 			'Privacy Policy':'Privacy Policy',
-			'All Rights Reserved':'All Rights Reserved'
+			'All Rights Reserved':'All Rights Reserved',
+			"Register":"Register",
+			'Register for your teamplay account in order to proceed.':'Register for your teamplay account in order to proceed.',
+			'First name':'First name',
+			'Last name':'Last name',
+			'Retype password':'Retype password',
+			'Country':'Country',
+			' I accept the':' I accept the'
 			
 			
         },
@@ -3285,7 +3295,14 @@
 			'Corporate Information':'Entreprise',
 			'Terms of Use':"Conditions d'utilisation",
 			'Privacy Policy':'Politique de confidentialité',
-			'All Rights Reserved': 'Tous droits réservés'
+			'All Rights Reserved': 'Tous droits réservés',
+			'Register':'Enregistrer',
+			'Register for your teamplay account in order to proceed.':'Enregistrer le compte teamplay pour poursuivre.',
+			'First name':'Prénom',
+			'Last name':'Nom',
+			'Retype password':'Retapez le mot de passe',
+			'Country':'Pays',
+			" I accept the":"J'accepte les clauses suivantes"
 		},
 		'de-DE':{
 		  'Login': 'Anmeldung',
@@ -3302,7 +3319,14 @@
 			'Corporate Information':' Unternehmensinformationen',
 			'Terms of Use':'Nutzungsbedingungen',
 			'Privacy Policy':'Datenschutzerklärung',
-			'All Rights Reserved':'Alle Rechte vorbehalten'
+			'All Rights Reserved':'Alle Rechte vorbehalten',
+			'Register':'Registrieren',
+			'Register for your teamplay account in order to proceed.':'Registrieren Sie sich für ein teamplay-Nutzerkonto, um fortfahren zu können.',
+			'First name':'Vorname',
+			'Last name':'Nachname',
+			'Retype password':'Kennwort wiederholen',
+			'Country':'Land',
+			' I accept the':'Ich akzeptiere die'
 		},
 		'es-ES':{
 		  'Login': 'Inicio de sesión',
@@ -3319,7 +3343,14 @@
 			'Corporate Information':'Información corporativa',
 			'Terms of Use':'Condiciones de uso',
 			'Privacy Policy':'Política de privacidad',
-			'All Rights Reserved':'Reservados todos los derechos'
+			'All Rights Reserved':'Reservados todos los derechos',
+			'Register':'Registrarse',
+			'Register for your teamplay account in order to proceed.':'Regístrese en su cuenta de teamplay para continuar.',
+			'First name':'Nombre',
+			'Last name':'Apellidos',
+			'Retype password':'Volver a escribir contraseña',
+			'Country':'País',
+			' I accept the':' Acepto'
 		  },
 		'zh-HANS':{
 		  'Login': '登录',
@@ -3336,7 +3367,14 @@
 			'Corporate Information':' 公司信息',
 			'Terms of Use':'使用条款',
 			'Privacy Policy':'隐私政策',
-			'All Rights Reserved':' 保留所有权利'
+			'All Rights Reserved':' 保留所有权利',
+			'Register':'注册',
+			'Register for your teamplay account in order to proceed.':'注册您的teamplay帐户以便继续.',
+			'First name':'名字',
+			'Last name':'姓氏',
+			'Retype password':'重新输入密码',
+			'Country':'国家/地区',
+			' I accept the':' 我接受'
 		  },
 		'ja-JP':{
 		  'Login': 'ログイン',
@@ -3353,7 +3391,14 @@
 			'Corporate Information':' 企業情報',
 			'Terms of Use':' ご利用規約',
 			'Privacy Policy':'プライバシーに関する方針',
-			'All Rights Reserved':'All Rights Reserved'
+			'All Rights Reserved':'All Rights Reserved',
+			'Register':'登録',
+			'Register for your teamplay account in order to proceed.':'続行するには、teamplayアカウントの登録を行ってください.',
+			'First name':'名（ファーストネーム）',
+			'Last name':'姓',
+			'Retype password':'パスワード再入力',
+			'Country':'国',
+			' I accept the':'同意します'
 		  },
 		 'ko-KR':{
 		  'Login': '로그인',
@@ -3370,7 +3415,14 @@
 			'Corporate Information':' 회사 정보 ',
 			'Terms of Use':'사용 약관',
 			'Privacy Policy':'개인 정보 보호 정책',
-			'All Rights Reserved':'All Rights Reserved'
+			'All Rights Reserved':'All Rights Reserved',
+			'Register':'등록',
+			'Register for your teamplay account in order to proceed.':'계속 진행하려면 teamplay 계정을 등록하십시오..',
+			'First name':'이름',
+			'Last name':'성',
+			'Retype password':'비밀번호 다시 입력',
+			'Country':'국가',
+			' I accept the':'다음 내용에 동의함'
 		  },
 		 'tr-TR':{
 		  'Login': 'Oturum aç',
@@ -3387,7 +3439,14 @@
 			'Corporate Information':'Kurumsal Bilgi',
 			'Terms of Use':'Kullanım Şartları',
 			'Privacy Policy':'Gizlilik Politikası',
-			'All Rights Reserved':'Tüm Hakları Saklıdır'
+			'All Rights Reserved':'Tüm Hakları Saklıdır',
+			'Register':'Kaydolun',
+			'Register for your teamplay account in order to proceed.':'Devam etmek için teamplay hesabınıza kaydolun.',
+			'First name':'Ad',
+			'Last name':'Soyadı',
+			'Retype password':'Şifreyi yeniden girin',
+			'Country':'Ülke',
+			' I accept the':'Şunları kabul ediyorum:'
 		  }
 		  
 		 
