@@ -3,7 +3,7 @@
    <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Sign In with Auth0</title>
+      <title>Login</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -2951,13 +2951,31 @@
                               <div class="row mx-0">
                                  <form id="login-form" class="col-md-12">
                                     <h1 class="m-0 mb-2 padding-bottom-12" data-translate = "Login"></h1>
+                                    <div id="loginMessageContainer" class="pb-3 ng-scope" style="display:none;">
+                                      <div>
+                                          <div class="row ng-isolate-scope" ui-message="" level="error" title="The email or password you entered is incorrect. Please be aware that log on from outside your country is currently not supported." message="" icon="icon-close" test-id="txtLoginMessage" more-info="mainModel.form.message.moreInfo">
+                                      <div class="col-sm-12">
+                                      <section class="ui-message" data-message-level="error">
+                                  <!-- ngIf: icon --><i ng-if="icon" class="text-center img-circle icon-close"></i><!-- end ngIf: icon -->
+                      
+                                       <h6 id="txtLoginMessageTitle" class="ng-binding">The email or password you entered is incorrect. Please be aware that log on from outside your country is currently not supported.</h6>
+                                  <!-- ngIf: moreInfo -->
+                                     
+                                      </section>
+                                      </div>
+                                      </div>
+                      
+                                      </div>
+                      
+                                  </div>
                                     <div class="row">
                                        <div class="col-md-12">
                                           <div class="standard-input text required" type="text" label="Email" required="required">
                                              <div class="input-wrapper">
-                                                <input id="email" name="email" type="text" required="">
+                                                <input id="email" name="email" type="text" required="" onblur="validateEmail(this)">
                                                 <label for="email"><span data-translate ="Email"></span></label>
                                              </div>
+                                             <cite id="emailValidationMessage"  style="display:none" class="ng-binding" data-translate="Please enter a valid email" ></cite>
                                           </div>
                                        </div>
                                     </div>
@@ -2965,9 +2983,10 @@
                                        <div class="col-md-12">
                                           <div class="standard-input password required"  type="password" label="Password" required="required">
                                              <div class="input-wrapper">
-                                                <input id="password" name="password" type="password" required="">
+                                                <input id="password" name="password" type="password" required=""  onblur="validatePassword(this)">
                                                 <label for="password"><span data-translate ="Password"></span></label>
                                              </div>
+                                             <cite id="passwordValidationMessage" ng-show="error" class="ng-binding" style="display:none" data-translate="Needs to be filled"></cite>
                                           </div>
                                           <a class="passwordResetLink" href="" data-translate = "Forgot password?"></a>
                                        </div>
@@ -3268,14 +3287,19 @@
 			'Terms of Use':'Terms of Use',
 			'Privacy Policy':'Privacy Policy',
 			'All Rights Reserved':'All Rights Reserved',
+
 			"Register":"Register",
 			'Register for your teamplay account in order to proceed.':'Register for your teamplay account in order to proceed.',
 			'First name':'First name',
 			'Last name':'Last name',
 			'Retype password':'Retype password',
 			'Country':'Country',
-			' I accept the':' I accept the'
+			' I accept the':' I accept the',
 			
+
+			'Please enter a valid email':'Please enter a valid email',
+      'Needs to be filled':'Needs to be filled'
+
 			
         },
 		'fr-FR':{
@@ -3294,13 +3318,19 @@
 			'Terms of Use':"Conditions d'utilisation",
 			'Privacy Policy':'Politique de confidentialité',
 			'All Rights Reserved': 'Tous droits réservés',
+
 			'Register':'Enregistrer',
 			'Register for your teamplay account in order to proceed.':'Enregistrer le compte teamplay pour poursuivre.',
 			'First name':'Prénom',
 			'Last name':'Nom',
 			'Retype password':'Retapez le mot de passe',
 			'Country':'Pays',
-			" I accept the":"J'accepte les clauses suivantes"
+			" I accept the":"J'accepte les clauses suivantes",
+
+			'Please enter a valid email':'Entrez une adresse e-mail valide',
+      'Needs to be filled':'À remplir'
+      
+
 		},
 		'de-DE':{
 		  'Login': 'Anmeldung',
@@ -3318,13 +3348,18 @@
 			'Terms of Use':'Nutzungsbedingungen',
 			'Privacy Policy':'Datenschutzerklärung',
 			'All Rights Reserved':'Alle Rechte vorbehalten',
+
 			'Register':'Registrieren',
 			'Register for your teamplay account in order to proceed.':'Registrieren Sie sich für ein teamplay-Nutzerkonto, um fortfahren zu können.',
 			'First name':'Vorname',
 			'Last name':'Nachname',
 			'Retype password':'Kennwort wiederholen',
 			'Country':'Land',
-			' I accept the':'Ich akzeptiere die'
+			' I accept the':'Ich akzeptiere die',
+
+			'Please enter a valid email':'Bitte geben Sie eine gültige E-Mail-Adresse ein',
+      'Needs to be filled':'Muss ausgefüllt werden'
+
 		},
 		'es-ES':{
 		  'Login': 'Inicio de sesión',
@@ -3342,13 +3377,18 @@
 			'Terms of Use':'Condiciones de uso',
 			'Privacy Policy':'Política de privacidad',
 			'All Rights Reserved':'Reservados todos los derechos',
+
 			'Register':'Registrarse',
 			'Register for your teamplay account in order to proceed.':'Regístrese en su cuenta de teamplay para continuar.',
 			'First name':'Nombre',
 			'Last name':'Apellidos',
 			'Retype password':'Volver a escribir contraseña',
 			'Country':'País',
-			' I accept the':' Acepto'
+			' I accept the':' Acepto',
+
+			'Please enter a valid email':'Introduzca un correo electrónico válido.',
+      'Needs to be filled':'Se debe rellenar'
+
 		  },
 		'zh-HANS':{
 		  'Login': '登录',
@@ -3366,13 +3406,18 @@
 			'Terms of Use':'使用条款',
 			'Privacy Policy':'隐私政策',
 			'All Rights Reserved':' 保留所有权利',
+
 			'Register':'注册',
 			'Register for your teamplay account in order to proceed.':'注册您的teamplay帐户以便继续.',
 			'First name':'名字',
 			'Last name':'姓氏',
 			'Retype password':'重新输入密码',
 			'Country':'国家/地区',
-			' I accept the':' 我接受'
+			' I accept the':' 我接受',
+
+			'Please enter a valid email':'请输入有效的电子邮件',
+      'Needs to be filled':'需要填充'
+
 		  },
 		'ja-JP':{
 		  'Login': 'ログイン',
@@ -3390,13 +3435,18 @@
 			'Terms of Use':' ご利用規約',
 			'Privacy Policy':'プライバシーに関する方針',
 			'All Rights Reserved':'All Rights Reserved',
+
 			'Register':'登録',
 			'Register for your teamplay account in order to proceed.':'続行するには、teamplayアカウントの登録を行ってください.',
 			'First name':'名（ファーストネーム）',
 			'Last name':'姓',
 			'Retype password':'パスワード再入力',
 			'Country':'国',
-			' I accept the':'同意します'
+			' I accept the':'同意します',
+
+			'Please enter a valid email':'有効なEメールアドレスを入力してください',
+      'Needs to be filled':'要記入'
+
 		  },
 		 'ko-KR':{
 		  'Login': '로그인',
@@ -3414,13 +3464,19 @@
 			'Terms of Use':'사용 약관',
 			'Privacy Policy':'개인 정보 보호 정책',
 			'All Rights Reserved':'All Rights Reserved',
+
 			'Register':'등록',
 			'Register for your teamplay account in order to proceed.':'계속 진행하려면 teamplay 계정을 등록하십시오..',
 			'First name':'이름',
 			'Last name':'성',
 			'Retype password':'비밀번호 다시 입력',
 			'Country':'국가',
-			' I accept the':'다음 내용에 동의함'
+			' I accept the':'다음 내용에 동의함',
+
+      'Please enter a valid email':' 유효한 이메일을 입력하십시오.',
+      'Needs to be filled':'기재 필요'
+     
+
 		  },
 		 'tr-TR':{
 		  'Login': 'Oturum aç',
@@ -3438,13 +3494,18 @@
 			'Terms of Use':'Kullanım Şartları',
 			'Privacy Policy':'Gizlilik Politikası',
 			'All Rights Reserved':'Tüm Hakları Saklıdır',
+
 			'Register':'Kaydolun',
 			'Register for your teamplay account in order to proceed.':'Devam etmek için teamplay hesabınıza kaydolun.',
 			'First name':'Ad',
 			'Last name':'Soyadı',
 			'Retype password':'Şifreyi yeniden girin',
 			'Country':'Ülke',
-			' I accept the':'Şunları kabul ediyorum:'
+			' I accept the':'Şunları kabul ediyorum:',
+
+      'Please enter a valid email':'Lütfen geçerli bir e-posta girin',
+      'Needs to be filled':'Doldurulması gerekiyor'
+
 		  }
 		  
 		 
@@ -3582,8 +3643,12 @@
                  document.getElementsByTagName('head')[0].appendChild(script);
          
                     function login(e) {
-                     e.preventDefault();             
-                     var username = document.getElementById('email').value;
+                     e.preventDefault();       
+                     
+                    if( !validateEmail(document.getElementById('email'))){
+                      return false;
+                    }
+                    
                      if (document.getElementById("password-row").style.display === "none") {
                        return loginWithSiemens(username);
                      }
@@ -3649,14 +3714,21 @@
                         options.username = username;
                       }
                       webAuth.authorize(options, function(err) {
-                        if (err) displayError(err);
+                        if (err) {
+                          
+                          displayError(err);}
                       });
                     }
                   
                      function displayError(err) {
-                 var errorMessage = document.getElementById('error-message');
-                 errorMessage.innerHTML = err.description;
-                 errorMessage.style.display = 'block';
+                    if(err==='Wrong email or password.')
+                    {
+                      err='The email or password you entered is incorrect.';
+                    }
+                     var messageContainer = document.getElementById('loginMessageContainer');
+                     var errorMessage = document.getElementById('txtLoginMessageTitle');
+                     errorMessage.innerHTML = err.description;
+                     messageContainer.style.display = 'block';
                }
                     $(document).ready(function() { 
                       $('#login-form').on('submit', login);
@@ -3667,6 +3739,35 @@
                       $('#email').on('input', checkSiemens)
                     });
                   });
+
+            
+            /*validation*/
+                  function validateEmail(emailField){
+              var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+              var emailValidationMessage = document.getElementById('emailValidationMessage');
+             if (reg.test(emailField.value) == false) 
+            {
+            emailValidationMessage.style.display = 'block';
+            return false;
+            }else{
+              emailValidationMessage.style.display = 'none';
+            }
+
+          return true;
+        }
+        function validatePassword(passwordField){
+             
+          var emailValidationMessage = document.getElementById('passwordValidationMessage');
+             if (passwordField.value === '') 
+            {
+            emailValidationMessage.style.display = 'block';
+            return false;
+            }else{
+              emailValidationMessage.style.display = 'none';
+            }
+
+          return true;
+        }
                
       </script>
    </body>
