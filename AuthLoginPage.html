@@ -3507,6 +3507,14 @@
     #loginPageTab .tab-pane {
       padding-left: 24px;
     }
+    .std-input-error {
+           background-color: rgba(231, 0, 29, 0.08) !important;
+           border-bottom: 2px solid #e7001d !important;
+       }
+       .std-input-success {
+           background-color: rgba(0, 154, 56, 0.08) !important;
+           border-bottom: 2px solid #009A38 !important;
+       }
   </style>
 </head>
 
@@ -3704,7 +3712,6 @@
                   </div>
 
                   <!---------------------Reset Password ends----------------------------------------------->
-
                 </div>
               </span>
             </div>
@@ -3720,109 +3727,106 @@
                       <p class="ng-binding" data-translate="Register for your teamplay account in order to proceed.">
                         Register for your teamplay account in order to proceed.
                       </p>
+                      <div id="registrationMessageContainer" class="pb-3 ng-scope" style="display:none;">
+                        <div>
+                          <div class="row ng-isolate-scope" ui-message="" level="error" 
+                                                  message="" icon="icon-close" test-id="txtRegistrationMessage">
+                            
+                           <div class="col-sm-12">
+                              <section class="ui-message" data-message-level="error">
+                                <!-- ngIf: icon -->
+                                <i ng-if="icon" class="text-center img-circle icon-close"></i>
+                                <!-- end ngIf: icon -->
+
+                                <h6 id="txtRegistrationMessage" class="ng-binding"></h6>
+                                <!-- ngIf: moreInfo -->
+
+                              </section>
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </div>
                       <div class="row fields">
                         <div class="row">
                           <div class="col-md-12">
-                            <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required text required"
-                              ng-class="{ 'standard-input-error': error, text: type,'required':required }" standard-input=""
-                              ng-model="registerModel.form.fields.email.value" on-validate="registerModel.form.fields.email.validate()"
-                              error="" type="text" label="Email" test-id="RegistrationEmail" required="required">
+                            <div class="standard-input text required"
+                               type="text" label="Email" test-id="RegistrationEmail" required="required">
                               <div class="input-wrapper">
-                                <input id="email-reg" name="email-reg" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="text"
-                                  placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationEmail" required=""
-                                  class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+                                <input id="email-reg" name="email-reg" type="text" data-test-id="txtRegistrationEmail" required="" class="" pattern-type="email">
                                 <label for="email-reg">
-                                  <span class="ng-binding" data-translate="Email">Email</span>
+                                  <span class="ng-binding" data-translate="Email"></span>
                                 </label>
                               </div>
-                              <cite ng-show="error" class="ng-binding ng-hide"></cite>
+                              <cite id="txtRegistrationEmailMessage" style="display:none" class="ng-binding" data-translate="Please enter a valid email"></cite>
+                             </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="standard-input text required" type="text" label="First name" test-id="RegistrationFirstName" required="required">
+                              <div class="input-wrapper">
+                                <input id="firstName" name="firstName" type="text" placeholder="" data-value="" data-test-id="txtRegistrationFirstName" required="" class="">
+                                  <label for="firstName">
+                                    <span class="ng-binding" data-translate="First name"></span>
+                                  </label>
+                              </div>
+                              <cite id="txtRegistrationFirstNameMessage" style="display:none" class="ng-binding" data-translate="Needs to be filled"></cite>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="standard-input text required" type="text" label="Last name" test-id="RegistrationLastName" required="required">
+                              <div class="input-wrapper">
+                                <input id="lastName" name="lastName" type="text" placeholder=""  data-value="" data-test-id="txtRegistrationLastName" required="" class="">
+                                  <label for="lastName">
+                                    <span class="ng-binding" data-translate="Last name"></span>
+                                  </label>
+                              </div>
+                              <cite id="txtRegistrationLastNameMessage" style="display:none" class="ng-binding" data-translate="Needs to be filled"></cite>
                             </div>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-12">
-                            <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required text required"
-                              ng-class="{ 'standard-input-error': error, text: type,'required':required }" standard-input=""
-                              ng-model="registerModel.form.fields.firstName.value" on-validate="registerModel.form.fields.firstName.validate()"
-                              error="" type="text" label="First name" test-id="RegistrationFirstName" required="required">
+                            <div class="standard-input text required" type="password" label="Password" test-id="RegistrationPassword" required="required">
                               <div class="input-wrapper">
-                                <input id="firstName" name="firstName" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="text"
-                                  placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationFirstName"
-                                  required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
-                                <label for="firstName">
-                                  <span class="ng-binding" data-translate="First name">First name</span>
-                                </label>
+                                <input id="password-reg" name="password-reg" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="password" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationPassword" required="" class="" pattern-type="password">
+                                  <label for="password-reg">
+                                    <span class="ng-binding" data-translate="Password"></span>
+                                  </label>
+                                </div>
+                                <cite id="txtRegistrationPasswordMessage" style="display:none" class="ng-binding" data-translate="Needs to be filled"></cite>
+                                <cite id="passwordErrorMessage" style="display:none" class="ng-binding" data-translate="Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."></cite>
                               </div>
-                              <cite ng-show="error" class="ng-binding ng-hide"></cite>
                             </div>
                           </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required text required"
-                              ng-class="{ 'standard-input-error': error, text: type,'required':required }" standard-input=""
-                              ng-model="registerModel.form.fields.lastName.value" on-validate="registerModel.form.fields.lastName.validate()"
-                              error="" type="text" label="Last name" test-id="RegistrationLastName" required="required">
-                              <div class="input-wrapper">
-                                <input id="lastName" name="lastName" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="text"
-                                  placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationLastName"
-                                  required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
-                                <label for="lastName">
-                                  <span class="ng-binding" data-translate="Last name">Last name</span>
-                                </label>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="standard-input text required" type="password" label="Retype password" test-id="RegistrationPasswordConfirm" required="required">
+                                <div class="input-wrapper">
+                                  <input id="passwordConfirmation" name="email" type="password" placeholder="" data-test-id="txtRegistrationPasswordConfirm" required="" class="" pattern-type="retypepassword">
+                                    <label for="passwordConfirmation">
+                                      <span class="ng-binding" data-translate="Retype password"></span>
+                                    </label>
+                                </div>
+                                <cite id="txtRegistrationPasswordConfirmMessage" style="display:none" class="ng-binding" data-translate="Needs to be filled"></cite>
+                                <cite id="retypePasswordErrorMessage" style="display:none" class="ng-binding" data-translate="Must be same as password"></cite>                                
                               </div>
-                              <cite ng-show="error" class="ng-binding ng-hide"></cite>
                             </div>
                           </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required password required"
-                              ng-class="{ 'standard-input-error': error, password: type,'required':required }" standard-input=""
-                              ng-model="registerModel.form.fields.password.value" on-validate="registerModel.form.fields.password.validate()"
-                              error="" type="password" label="Password" test-id="RegistrationPassword" required="required">
-                              <div class="input-wrapper">
-                                <input id="password-reg" name="password-reg" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)"
-                                  type="password" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationPassword"
-                                  required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
-                                <label for="password-reg">
-                                  <span class="ng-binding" data-translate="Password">Password</span>
-                                </label>
-                              </div>
-                              <cite ng-show="error" class="ng-binding ng-hide"></cite>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <div class="standard-input ng-pristine ng-untouched ng-isolate-scope ng-empty ng-invalid ng-invalid-required password required"
-                              ng-class="{ 'standard-input-error': error, password: type,'required':required }" standard-input=""
-                              ng-model="registerModel.form.fields.passwordConfirmation.value" on-validate="registerModel.form.fields.passwordConfirmation.validate()"
-                              error="" type="password" label="Retype password" test-id="RegistrationPasswordConfirm" required="required">
-                              <div class="input-wrapper">
-                                <input id="passwordConfirmation" name="email" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)"
-                                  type="password" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationPasswordConfirm"
-                                  required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
-                                <label for="passwordConfirmation">
-                                  <span class="ng-binding" data-translate="Retype password">Retype password</span>
-                                </label>
-                              </div>
-                              <cite ng-show="error" class="ng-binding ng-hide"></cite>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-sm-12 ng-isolate-scope" privacy-policy-selector="" country-field="registerModel.form.fields.country" privacy-policy-field="registerModel.form.fields.privacyPolicy"
-                            test-id="privacyPolicy">
-                            <div class="row">
-                              <div class="col-sm-12">
-                                <div class="standard-select-box ng-isolate-scope required" ng-class="{ 'standard-select-error': error , 'required':true}"
+                          <div class="row">
+                            <div class="col-sm-12 ng-isolate-scope" test-id="privacyPolicy">
+                              <div class="standard-select-box ng-isolate-scope required" 
                                   standard-select-box="" field="countryField" options="avaliableLanguages" on-change="onCountryChange"
                                   key="name" value="iso2" on-validate="countryField.validate()" error="" label="Country" placeholder="Country"
                                   required="required">
-                                  <div class="input-wrapper">
-                                    <select id="id132" ng-model="field.value">
-                                      <option value="" disabled="" style="display: none;" class="ng-binding" selected="selected" data-translate="Country">Country</option>
+                                <div class="input-wrapper">
+                                    <select id="selectCountry" ng-model="field.value">
+                                      <option value="" disabled="" style="display: none;" class="ng-binding" selected="selected" data-translate="Country"></option>
                                       <!-- ngRepeat: item in options -->
                                       <option value="ar" ng-repeat="item in options" class="ng-binding ng-scope">Argentina</option>
                                       <!-- end ngRepeat: item in options -->
@@ -3914,48 +3918,47 @@
                                       <!-- end ngRepeat: item in options -->
                                     </select>
                                     <i class="icon-arrow-down-large arrow"></i>
-                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <div class="row zero-margin-top">
-                              <div class="checkbox row padding-left-24 disabled" ng-class="{ 'standard-input-error': privacyPolicyField.error, 'disabled': !privacyPolicy.DocumentId }">
-                                <div class="input-wrapper">
-                                  <span>
-                                    <input id="privacyPolicyChkBox" type="checkbox" ng-model="privacyPolicyField.checkboxState" ng-disabled="!privacyPolicy.DocumentId"
-                                      ng-change="onPrivacyPolicyCheck()" data-test-id="privacyPolicyCheckbox" class="ng-pristine ng-untouched ng-valid ng-empty"
+                            </div>                            
+                          </div>
+                          <div class="row zero-margin-top">
+                            <div class="checkbox row padding-left-24" required="required">
+                              <div class="input-wrapper">
+                                <span>
+                                  <input id="privacyPolicyChkBox" pattern-type = "checkbox" type="checkbox"  
+                                      ng-change="onPrivacyPolicyCheck()" data-test-id="privacyPolicyCheckbox" required="" 
                                       disabled="disabled">
-                                    <label for="privacyPolicyChkBox" class="ng-binding" data-translate=" I accept the">
-                                      I accept the
-                                    </label>
-                                  </span>
-                                  <span class="">
-                                    <a ng-href="https://ostoredev.blob.core.windows.net/dedocs/teamplayDataPrivacyPolicy_20150522_DE-en.pdf" data-test-id="privacyPolicyLink"
-                                      target="_blank" ng-hide="!privacyPolicy.DocumentId" class="ng-binding ng-hide" href="https://ostoredev.blob.core.windows.net/dedocs/teamplayDataPrivacyPolicy_20150522_DE-en.pdf">
+                                  <label for="privacyPolicyChkBox" class="ng-binding" data-translate=" I accept the">                                      
+                                  </label>
+                                </span>
+                                <span class="">
+                                  <a ng-href="" data-test-id="privacyPolicyLink"
+                                      target="_blank" hidden=true class="ng-binding ng-hide" href="">
                                       teamplay Data Privacy Policy
-                                    </a>
-
-                                </div>
-                                <cite class="padding-left-6 ng-binding"></cite>
+                                  </a>
+                                  <span data-test-id="privacyPolicyText">teamplay Data Privacy Policy
+                                  </span>
+                                </span>
                               </div>
+                              <cite id="privacyPolicyCheckboxMessage" style="display:none" class="padding-left-6 ng-binding" data-translate="Needs to be checked"></cite>
                             </div>
-
-
                           </div>
                         </div>
+
                         <div class="row zero-margin-top">
-                          <div class="margin-top-24 margin-bottom-30 col-sm-6">
-                            <a id="btn-signup" class="pull-left simple-button-color simple-button ng-binding ng-isolate-scope" ng-click="handleClick($event)"
+                            <div class="margin-top-24 margin-bottom-30 col-sm-6">
+                              <a id="btn-signup" class="pull-left simple-button-color simple-button ng-binding ng-isolate-scope" ng-click="handleClick($event)"
                               ng-disabled="isDisabled" data-test-id="UserRegistration " simple-button="" icon="icon-arrow-right-large"
                               label="Register" on-click="registerModel.form.submit($event)" is-disabled="registerModel.form.isSubmitting"
                               is-loading="registerModel.form.isSubmitting" tabindex="0" data-translate="Register">
-                              <i class="icon-arrow-right-large"></i>
-                              Register
-                            </a>
-                            <input class="hidden" type="submit">
-                          </div>
+                                <i class="icon-arrow-right-large"></i>
+                            
+                              </a>
+                              <input class="hidden" type="submit">
+                            </div>
                         </div>
-                      </div>
+                      </div>                      
                     </form>
                     <!-- end ngIf: !registerModel.isRegisrationSuccess -->
                   </div>
@@ -3965,7 +3968,7 @@
           </div>
           <div id="error-message" style="display:none"></div>
         </div>
-      </div>
+      
       <div id="class2_footer">
         <footer>
           <div class="login-footer" style="display: inline-block; width: 100%;">
@@ -4041,18 +4044,15 @@
         ' I accept the': ' I accept the',
         'Please enter a valid email': 'Please enter a valid email',
         'Needs to be filled': 'Needs to be filled',
-
+        'Needs to be checked': 'Needs to be checked',
         'Reset password': 'Reset password',
+        'Must be same as password': 'Must be same as password',
         'Reset your password using your teamplay email address.': 'Reset your password using your teamplay email address.',
         'Cancel': 'Cancel',
         "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
         "Back to log in": "Back to log in",
-        "A reset link has been sent to your email address":"A reset link has been sent to your email address"
-
-        ,"Password confirmation": "Password confirmation",
-
-
-
+        "A reset link has been sent to your email address":"A reset link has been sent to your email address",
+        "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
       },
       'fr-FR': {
         'Login': 'Connexion',
@@ -4061,6 +4061,7 @@
         'Email': 'Adresse e-mail',
         'Forgot password?': 'Mot de passe oublié?',
         'Password': 'Mot de passe',
+        'Must be same as password': 'Doit être identique au mot de passe',
         'or log in with your <a >Siemens Healthineers account</a>.': 'or log in with your <a >Compte Siemens Healthineers</a>.',
         'Siemens Healthineers account': 'Compte Siemens Healthineers.',
         'Dont have an account?': "Vous n'avez pas encore de compte ?",
@@ -4079,17 +4080,15 @@
         " I accept the": "J'accepte les clauses suivantes",
         'Please enter a valid email': 'Entrez une adresse e-mail valide',
         'Needs to be filled': 'À remplir',
+        'Needs to be checked': 'À contrôler',
         'Reset your password using your teamplay email address.': 'Reset your password using your teamplay email address.'
-
         , 'Reset password': 'Réinitialiser le mot de passe',
         'Reset your password using your teamplay email address.': 'Réinitialisez votre mot de passe en utilisant votre adresse e-mail teamplay.',
         'Cancel': 'Annuler',
         "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
         "Back to log in": "Retour à la connexion",
-        "A reset link has been sent to your email address": "Un lien de réinitialisation a été envoyé à votre adresse e-mail"
-
-        ,"Password confirmation": "Confirmation du mot de passe",
-
+        "A reset link has been sent to your email address": "Un lien de réinitialisation a été envoyé à votre adresse e-mail",
+        "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
       },
       'de-DE': {
         'Login': 'Anmeldung',
@@ -4097,7 +4096,9 @@
         'Language': 'Sprache',
         'Email': 'E-Mail',
         'Forgot password?': 'Kennwort vergessen?',
+        'Needs to be checked': 'Muss überprüft werden',
         'Password': 'Kennwort',
+        'Must be same as password': 'Muss mit dem Kennwort übereinstimmen',
         'or log in with your <a >Siemens Healthineers account</a>.': 'oder verwenden Sie Ihr <a >Siemens Healthineers-Konto.</a>.',
         'Siemens Healthineers account': 'Siemens Healthineers account',
         'Dont have an account?': 'Sie haben kein Konto?',
@@ -4116,15 +4117,13 @@
         ' I accept the': 'Ich akzeptiere die',
         'Please enter a valid email': 'Bitte geben Sie eine gültige E-Mail-Adresse ein',
         'Needs to be filled': 'Muss ausgefüllt werden',
-
         'Reset password': 'Kennwort zurücksetzen',
         'Reset your password using your teamplay email address.': 'Setzen Sie Ihr Kennwort mithilfe Ihrer teamplay-E-Mail-Adresse zurück.',
         'Cancel': 'Abbrechen',
         "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
         "Back to log in": "Zurück zur Anmeldung",
-        "A reset link has been sent to your email address": "Ein Link zum Zurücksetzen wurde an Ihre E-Mail-Adresse gesendet"
-
-       ,	"Password confirmation": "Kennwortbestätigung",
+        "A reset link has been sent to your email address": "Ein Link zum Zurücksetzen wurde an Ihre E-Mail-Adresse gesendet",
+        "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
       },
       'es-ES': {
         'Login': 'Inicio de sesión',
@@ -4133,6 +4132,8 @@
         'Email': 'Correo electrónico',
         'Forgot password?': 'Forgot password?',
         'Password': 'Contraseña',
+        'Must be same as password': '"Debe ser igual que la contraseña',
+        'Needs to be checked': 'Se debe comprobar',
         'or log in with your <a >Siemens Healthineers account</a>.': 'o inicie sesión con su  <a >Cuenta de Siemens Healthineers.</a>.',
         'Siemens Healthineers account': 'Siemens Healthineers account',
         'Dont have an account?': 'Sie haben kein Konto?',
@@ -4155,10 +4156,8 @@
         'Cancel': 'Cancelar',
         "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
         "Back to log in": "Volver al inicio de sesión",
-        "A reset link has been sent to your email address": "Se ha enviado un vínculo de restablecimiento a su dirección de correo electrónico."
-
-        ,"Password confirmation": "Confirmación de contraseña",
-
+        "A reset link has been sent to your email address": "Se ha enviado un vínculo de restablecimiento a su dirección de correo electrónico.",
+        "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
       },
       'zh-HANS': {
         'Login': '登录',
@@ -4167,6 +4166,8 @@
         'Email': '电子邮件',
         'Forgot password?': '忘记密码?',
         'Password': '密码',
+        'Must be same as password': '必须与密码相同',
+        'Needs to be checked': '需要检查',
         'or log in with your <a >Siemens Healthineers account</a>.': '或登录时使用:<a >Siemens Healthineers帐户.</a>.',
         'Siemens Healthineers account': 'Siemens Healthineers account',
         'Dont have an account?': '无帐户？',
@@ -4191,9 +4192,7 @@
         "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
         "Back to log in": " 返回登录",
         "A reset link has been sent to your email address": "重置链接已发送至您的电子邮件地址",
-
-        	"Password confirmation": "密码确认",
-
+        "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
       },
       'ja-JP': {
         'Login': 'ログイン',
@@ -4202,6 +4201,8 @@
         'Email': 'Eメール',
         'Forgot password?': 'パスワードを忘れた場合?',
         'Password': 'パスワード',
+        'Must be same as password': 'パスワードと同じである必要があります',
+        'Needs to be checked': '要チェック',
         'or log in with your <a >Siemens Healthineers account</a>.': 'でログイン <a >Siemens Healthineersアカウント.</a>.',
         'Siemens Healthineers account': 'Siemens Healthineers account',
         'Dont have an account?': 'アカウントをお持ちではありませんか?',
@@ -4226,9 +4227,7 @@
         "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
         "Back to log in": "ログインに戻る",
         "A reset link has been sent to your email address": "リセットに使用するリンクが、あなたのEメールアドレスに送信されました。",
-
-        "Password confirmation": "パスワード確認",
-
+        "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
       },
       'ko-KR': {
         'Login': '로그인',
@@ -4237,6 +4236,8 @@
         'Email': '이메일',
         'Forgot password?': '비밀번호 찾기?',
         'Password': '비밀번호',
+        'Must be same as password': '반드시 비밀번호와 같아야 합니다.',
+        'Needs to be checked': '점검 필요',
         'or log in with your <a >Siemens Healthineers account</a>.': '또는 다음 정보로 로그인 <a >Siemens Healthineers 계정.</a>.',
         'Siemens Healthineers account': 'Siemens Healthineers account',
         'Dont have an account?': '계정이 없으십니까?',
@@ -4261,9 +4262,7 @@
         "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
         "Back to log in": "로그인으로 돌아가기",
         "A reset link has been sent to your email address": "이메일 주소로 리셋 링크를 보냈습니다.",
-        "Password confirmation": "비밀번호 확인",
-
-
+        "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
       },
       'tr-TR': {
         'Login': 'Oturum aç',
@@ -4272,6 +4271,8 @@
         'Email': 'E-posta',
         'Forgot password?': 'Şifreyi unut?',
         'Password': 'Şifre',
+        'Must be same as password': 'Şifreyle aynı olmalıdır',
+        'Needs to be checked': 'Kontrol edilmesi gerekiyor',
         'or log in with your <a >Siemens Healthineers account</a>.': 'veya kendinize ait <a >Siemens Healthineers hesabı ile giriş yapın.</a>.',
         'Siemens Healthineers account': 'Siemens Healthineers account',
         'Dont have an account?': 'Bir hesabınız yok mu?',
@@ -4296,24 +4297,15 @@
         "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
         "Back to log in": " Girişe geri dön",
         "A reset link has been sent to your email address": "E-posta adresinize bir sıfırlama bağlantısı gönderildi",
-        "Password confirmation": "Şifre doğrulaması",
+        "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
       }
     };
-
-
-
-
-
-
-
-
     var locales = [{ "LocaleId": 1, "LocaleCode": "en-US", "LanguageName": "English", "LanguageCode": "en", "Country": "Row", "CountryCode": "US" }, { "LocaleId": 3, "LocaleCode": "fr-FR", "LanguageName": "Français", "LanguageCode": "fr", "Country": "France", "CountryCode": "FR" }, { "LocaleId": 4, "LocaleCode": "de-DE", "LanguageName": "Deutsch", "LanguageCode": "de", "Country": "Germany", "CountryCode": "DE" }, { "LocaleId": 5, "LocaleCode": "es-ES", "LanguageName": "Español", "LanguageCode": "es", "Country": "Spain", "CountryCode": "ES" }, { "LocaleId": 6, "LocaleCode": "zh-HANS", "LanguageName": "中文", "LanguageCode": "zh", "Country": "China", "CountryCode": "HANS" }, { "LocaleId": 7, "LocaleCode": "ja-JP", "LanguageName": "日本語", "LanguageCode": "ja", "Country": "Japan", "CountryCode": "JP" }, { "LocaleId": 8, "LocaleCode": "ko-KR", "LanguageName": "한국어", "LanguageCode": "ko", "Country": "Korea", "CountryCode": "KR" }, { "LocaleId": 9, "LocaleCode": "tr-TR", "LanguageName": "Türkçe", "LanguageCode": "tr", "Country": "Turkey", "CountryCode": "TR" }];
     var currentLanguage = { "LocaleId": 1, "LocaleCode": "en-US", "LanguageName": "English", "LanguageCode": "en", "Country": "Row", "CountryCode": "US" };
     var documentList = [];
     var countries = [{ "name": "Afghanistan", "iso2": "af", "dialCode": "93", "priority": 0, "areaCodes": null }, { "name": "Albania", "iso2": "al", "dialCode": "355", "priority": 0, "areaCodes": null }, { "name": "Algeria", "iso2": "dz", "dialCode": "213", "priority": 0, "areaCodes": null }, { "name": "American Samoa", "iso2": "as", "dialCode": "1684", "priority": 0, "areaCodes": null }, { "name": "Andorra", "iso2": "ad", "dialCode": "376", "priority": 0, "areaCodes": null }, { "name": "Angola", "iso2": "ao", "dialCode": "244", "priority": 0, "areaCodes": null }, { "name": "Anguilla", "iso2": "ai", "dialCode": "1264", "priority": 0, "areaCodes": null }, { "name": "Antigua and Barbuda", "iso2": "ag", "dialCode": "1268", "priority": 0, "areaCodes": null }, { "name": "Argentina", "iso2": "ar", "dialCode": "54", "priority": 0, "areaCodes": null }, { "name": "Armenia", "iso2": "am", "dialCode": "374", "priority": 0, "areaCodes": null }, { "name": "Aruba", "iso2": "aw", "dialCode": "297", "priority": 0, "areaCodes": null }, { "name": "Australia", "iso2": "au", "dialCode": "61", "priority": 0, "areaCodes": null }, { "name": "Austria", "iso2": "at", "dialCode": "43", "priority": 0, "areaCodes": null }, { "name": "Azerbaijan", "iso2": "az", "dialCode": "994", "priority": 0, "areaCodes": null }, { "name": "Bahamas", "iso2": "bs", "dialCode": "1242", "priority": 0, "areaCodes": null }, { "name": "Bahrain", "iso2": "bh", "dialCode": "973", "priority": 0, "areaCodes": null }, { "name": "Bangladesh", "iso2": "bd", "dialCode": "880", "priority": 0, "areaCodes": null }, { "name": "Barbados", "iso2": "bb", "dialCode": "1246", "priority": 0, "areaCodes": null }, { "name": "Belarus", "iso2": "by", "dialCode": "375", "priority": 0, "areaCodes": null }, { "name": "Belgium", "iso2": "be", "dialCode": "32", "priority": 0, "areaCodes": null }, { "name": "Belize", "iso2": "bz", "dialCode": "501", "priority": 0, "areaCodes": null }, { "name": "Benin", "iso2": "bj", "dialCode": "229", "priority": 0, "areaCodes": null }, { "name": "Bermuda", "iso2": "bm", "dialCode": "1441", "priority": 0, "areaCodes": null }, { "name": "Bhutan", "iso2": "bt", "dialCode": "975", "priority": 0, "areaCodes": null }, { "name": "Bolivia", "iso2": "bo", "dialCode": "591", "priority": 0, "areaCodes": null }, { "name": "Bosnia and Herzegovina", "iso2": "ba", "dialCode": "387", "priority": 0, "areaCodes": null }, { "name": "Botswana", "iso2": "bw", "dialCode": "267", "priority": 0, "areaCodes": null }, { "name": "Brazil", "iso2": "br", "dialCode": "55", "priority": 0, "areaCodes": null }, { "name": "British Indian Ocean Territory", "iso2": "io", "dialCode": "246", "priority": 0, "areaCodes": null }, { "name": "British Virgin Islands", "iso2": "vg", "dialCode": "1284", "priority": 0, "areaCodes": null }, { "name": "Brunei", "iso2": "bn", "dialCode": "673", "priority": 0, "areaCodes": null }, { "name": "Bulgaria", "iso2": "bg", "dialCode": "359", "priority": 0, "areaCodes": null }, { "name": "Burkina Faso", "iso2": "bf", "dialCode": "226", "priority": 0, "areaCodes": null }, { "name": "Burundi", "iso2": "bi", "dialCode": "257", "priority": 0, "areaCodes": null }, { "name": "Cambodia", "iso2": "kh", "dialCode": "855", "priority": 0, "areaCodes": null }, { "name": "Cameroon", "iso2": "cm", "dialCode": "237", "priority": 0, "areaCodes": null }, { "name": "Canada", "iso2": "ca", "dialCode": "1", "priority": 1, "areaCodes": ["204", "226", "236", "249", "250", "289", "306", "343", "365", "387", "403", "416", "418", "431", "437", "438", "450", "506", "514", "519", "548", "579", "581", "587", "604", "613", "639", "647", "672", "705", "709", "742", "778", "780", "782", "807", "819", "825", "867", "873", "902", "905"] }, { "name": "Cape Verde", "iso2": "cv", "dialCode": "238", "priority": 0, "areaCodes": null }, { "name": "Caribbean Netherlands", "iso2": "bq", "dialCode": "599", "priority": 1, "areaCodes": null }, { "name": "Cayman Islands", "iso2": "ky", "dialCode": "1345", "priority": 0, "areaCodes": null }, { "name": "Central African Republic", "iso2": "cf", "dialCode": "236", "priority": 0, "areaCodes": null }, { "name": "Chad", "iso2": "td", "dialCode": "235", "priority": 0, "areaCodes": null }, { "name": "Chile", "iso2": "cl", "dialCode": "56", "priority": 0, "areaCodes": null }, { "name": "China", "iso2": "cn", "dialCode": "86", "priority": 0, "areaCodes": null }, { "name": "Christmas Island", "iso2": "cx", "dialCode": "61", "priority": 2, "areaCodes": null }, { "name": "Cocos", "iso2": "cc", "dialCode": "61", "priority": 1, "areaCodes": null }, { "name": "Colombia", "iso2": "co", "dialCode": "57", "priority": 0, "areaCodes": null }, { "name": "Comoros", "iso2": "km", "dialCode": "269", "priority": 0, "areaCodes": null }, { "name": "Congo", "iso2": "cd", "dialCode": "243", "priority": 0, "areaCodes": null }, { "name": "Congo", "iso2": "cg", "dialCode": "242", "priority": 0, "areaCodes": null }, { "name": "Cook Islands", "iso2": "ck", "dialCode": "682", "priority": 0, "areaCodes": null }, { "name": "Costa Rica", "iso2": "cr", "dialCode": "506", "priority": 0, "areaCodes": null }, { "name": "Côte d’Ivoire", "iso2": "ci", "dialCode": "225", "priority": 0, "areaCodes": null }, { "name": "Croatia", "iso2": "hr", "dialCode": "385", "priority": 0, "areaCodes": null }, { "name": "Cuba", "iso2": "cu", "dialCode": "53", "priority": 0, "areaCodes": null }, { "name": "Curaçao", "iso2": "cw", "dialCode": "599", "priority": 0, "areaCodes": null }, { "name": "Cyprus", "iso2": "cy", "dialCode": "357", "priority": 0, "areaCodes": null }, { "name": "Czech Republic", "iso2": "cz", "dialCode": "420", "priority": 0, "areaCodes": null }, { "name": "Denmark", "iso2": "dk", "dialCode": "45", "priority": 0, "areaCodes": null }, { "name": "Djibouti", "iso2": "dj", "dialCode": "253", "priority": 0, "areaCodes": null }, { "name": "Dominica", "iso2": "dm", "dialCode": "1767", "priority": 0, "areaCodes": null }, { "name": "Dominican Republic", "iso2": "do", "dialCode": "1", "priority": 2, "areaCodes": ["809", "829", "849"] }, { "name": "Ecuador", "iso2": "ec", "dialCode": "593", "priority": 0, "areaCodes": null }, { "name": "Egypt", "iso2": "eg", "dialCode": "20", "priority": 0, "areaCodes": null }, { "name": "El Salvador", "iso2": "sv", "dialCode": "503", "priority": 0, "areaCodes": null }, { "name": "Equatorial Guinea", "iso2": "gq", "dialCode": "240", "priority": 0, "areaCodes": null }, { "name": "Eritrea", "iso2": "er", "dialCode": "291", "priority": 0, "areaCodes": null }, { "name": "Estonia", "iso2": "ee", "dialCode": "372", "priority": 0, "areaCodes": null }, { "name": "Ethiopia", "iso2": "et", "dialCode": "251", "priority": 0, "areaCodes": null }, { "name": "Falkland Islands", "iso2": "fk", "dialCode": "500", "priority": 0, "areaCodes": null }, { "name": "Faroe Islands", "iso2": "fo", "dialCode": "298", "priority": 0, "areaCodes": null }, { "name": "Fiji", "iso2": "fj", "dialCode": "679", "priority": 0, "areaCodes": null }, { "name": "Finland", "iso2": "fi", "dialCode": "358", "priority": 0, "areaCodes": null }, { "name": "France", "iso2": "fr", "dialCode": "33", "priority": 0, "areaCodes": null }, { "name": "French Guiana", "iso2": "gf", "dialCode": "594", "priority": 0, "areaCodes": null }, { "name": "French Polynesia", "iso2": "pf", "dialCode": "689", "priority": 0, "areaCodes": null }, { "name": "Gabon", "iso2": "ga", "dialCode": "241", "priority": 0, "areaCodes": null }, { "name": "Gambia", "iso2": "gm", "dialCode": "220", "priority": 0, "areaCodes": null }, { "name": "Georgia", "iso2": "ge", "dialCode": "995", "priority": 0, "areaCodes": null }, { "name": "Germany", "iso2": "de", "dialCode": "49", "priority": 0, "areaCodes": null }, { "name": "Ghana", "iso2": "gh", "dialCode": "233", "priority": 0, "areaCodes": null }, { "name": "Gibraltar", "iso2": "gi", "dialCode": "350", "priority": 0, "areaCodes": null }, { "name": "Greece", "iso2": "gr", "dialCode": "30", "priority": 0, "areaCodes": null }, { "name": "Greenland", "iso2": "gl", "dialCode": "299", "priority": 0, "areaCodes": null }, { "name": "Grenada", "iso2": "gd", "dialCode": "1473", "priority": 0, "areaCodes": null }, { "name": "Guadeloupe", "iso2": "gp", "dialCode": "590", "priority": 0, "areaCodes": null }, { "name": "Guam", "iso2": "gu", "dialCode": "1671", "priority": 0, "areaCodes": null }, { "name": "Guatemala", "iso2": "gt", "dialCode": "502", "priority": 0, "areaCodes": null }, { "name": "Guernsey", "iso2": "gg", "dialCode": "44", "priority": 1, "areaCodes": null }, { "name": "Guinea", "iso2": "gn", "dialCode": "224", "priority": 0, "areaCodes": null }, { "name": "Guinea-Bissau", "iso2": "gw", "dialCode": "245", "priority": 0, "areaCodes": null }, { "name": "Guyana", "iso2": "gy", "dialCode": "592", "priority": 0, "areaCodes": null }, { "name": "Haiti", "iso2": "ht", "dialCode": "509", "priority": 0, "areaCodes": null }, { "name": "Honduras", "iso2": "hn", "dialCode": "504", "priority": 0, "areaCodes": null }, { "name": "Hong Kong", "iso2": "hk", "dialCode": "852", "priority": 0, "areaCodes": null }, { "name": "Hungary", "iso2": "hu", "dialCode": "36", "priority": 0, "areaCodes": null }, { "name": "Iceland", "iso2": "is", "dialCode": "354", "priority": 0, "areaCodes": null }, { "name": "India", "iso2": "in", "dialCode": "91", "priority": 0, "areaCodes": null }, { "name": "Indonesia", "iso2": "id", "dialCode": "62", "priority": 0, "areaCodes": null }, { "name": "Iran", "iso2": "ir", "dialCode": "98", "priority": 0, "areaCodes": null }, { "name": "Iraq", "iso2": "iq", "dialCode": "964", "priority": 0, "areaCodes": null }, { "name": "Ireland", "iso2": "ie", "dialCode": "353", "priority": 0, "areaCodes": null }, { "name": "Isle of Man", "iso2": "im", "dialCode": "44", "priority": 2, "areaCodes": null }, { "name": "Israel", "iso2": "il", "dialCode": "972", "priority": 0, "areaCodes": null }, { "name": "Italy", "iso2": "it", "dialCode": "39", "priority": 0, "areaCodes": null }, { "name": "Jamaica", "iso2": "jm", "dialCode": "1876", "priority": 0, "areaCodes": null }, { "name": "Japan", "iso2": "jp", "dialCode": "81", "priority": 0, "areaCodes": null }, { "name": "Jersey", "iso2": "je", "dialCode": "44", "priority": 3, "areaCodes": null }, { "name": "Jordan", "iso2": "jo", "dialCode": "962", "priority": 0, "areaCodes": null }, { "name": "Kazakhstan", "iso2": "kz", "dialCode": "7", "priority": 1, "areaCodes": null }, { "name": "Kenya", "iso2": "ke", "dialCode": "254", "priority": 0, "areaCodes": null }, { "name": "Kiribati", "iso2": "ki", "dialCode": "686", "priority": 0, "areaCodes": null }, { "name": "Kosovo", "iso2": "xk", "dialCode": "383", "priority": 0, "areaCodes": null }, { "name": "Kuwait", "iso2": "kw", "dialCode": "965", "priority": 0, "areaCodes": null }, { "name": "Kyrgyzstan", "iso2": "kg", "dialCode": "996", "priority": 0, "areaCodes": null }, { "name": "Laos", "iso2": "la", "dialCode": "856", "priority": 0, "areaCodes": null }, { "name": "Latvia", "iso2": "lv", "dialCode": "371", "priority": 0, "areaCodes": null }, { "name": "Lebanon", "iso2": "lb", "dialCode": "961", "priority": 0, "areaCodes": null }, { "name": "Lesotho", "iso2": "ls", "dialCode": "266", "priority": 0, "areaCodes": null }, { "name": "Liberia", "iso2": "lr", "dialCode": "231", "priority": 0, "areaCodes": null }, { "name": "Libya", "iso2": "ly", "dialCode": "218", "priority": 0, "areaCodes": null }, { "name": "Liechtenstein", "iso2": "li", "dialCode": "423", "priority": 0, "areaCodes": null }, { "name": "Lithuania", "iso2": "lt", "dialCode": "370", "priority": 0, "areaCodes": null }, { "name": "Luxembourg", "iso2": "lu", "dialCode": "352", "priority": 0, "areaCodes": null }, { "name": "Macau", "iso2": "mo", "dialCode": "853", "priority": 0, "areaCodes": null }, { "name": "Macedonia", "iso2": "mk", "dialCode": "389", "priority": 0, "areaCodes": null }, { "name": "Madagascar", "iso2": "mg", "dialCode": "261", "priority": 0, "areaCodes": null }, { "name": "Malawi", "iso2": "mw", "dialCode": "265", "priority": 0, "areaCodes": null }, { "name": "Malaysia", "iso2": "my", "dialCode": "60", "priority": 0, "areaCodes": null }, { "name": "Maldives", "iso2": "mv", "dialCode": "960", "priority": 0, "areaCodes": null }, { "name": "Mali", "iso2": "ml", "dialCode": "223", "priority": 0, "areaCodes": null }, { "name": "Malta", "iso2": "mt", "dialCode": "356", "priority": 0, "areaCodes": null }, { "name": "Marshall Islands", "iso2": "mh", "dialCode": "692", "priority": 0, "areaCodes": null }, { "name": "Martinique", "iso2": "mq", "dialCode": "596", "priority": 0, "areaCodes": null }, { "name": "Mauritania", "iso2": "mr", "dialCode": "222", "priority": 0, "areaCodes": null }, { "name": "Mauritius", "iso2": "mu", "dialCode": "230", "priority": 0, "areaCodes": null }, { "name": "Mayotte", "iso2": "yt", "dialCode": "262", "priority": 1, "areaCodes": null }, { "name": "Mexico", "iso2": "mx", "dialCode": "52", "priority": 0, "areaCodes": null }, { "name": "Micronesia", "iso2": "fm", "dialCode": "691", "priority": 0, "areaCodes": null }, { "name": "Moldova", "iso2": "md", "dialCode": "373", "priority": 0, "areaCodes": null }, { "name": "Monaco", "iso2": "mc", "dialCode": "377", "priority": 0, "areaCodes": null }, { "name": "Mongolia", "iso2": "mn", "dialCode": "976", "priority": 0, "areaCodes": null }, { "name": "Montenegro", "iso2": "me", "dialCode": "382", "priority": 0, "areaCodes": null }, { "name": "Montserrat", "iso2": "ms", "dialCode": "1664", "priority": 0, "areaCodes": null }, { "name": "Morocco", "iso2": "ma", "dialCode": "212", "priority": 0, "areaCodes": null }, { "name": "Mozambique", "iso2": "mz", "dialCode": "258", "priority": 0, "areaCodes": null }, { "name": "Myanmar", "iso2": "mm", "dialCode": "95", "priority": 0, "areaCodes": null }, { "name": "Namibia", "iso2": "na", "dialCode": "264", "priority": 0, "areaCodes": null }, { "name": "Nauru", "iso2": "nr", "dialCode": "674", "priority": 0, "areaCodes": null }, { "name": "Nepal", "iso2": "np", "dialCode": "977", "priority": 0, "areaCodes": null }, { "name": "Netherlands", "iso2": "nl", "dialCode": "31", "priority": 0, "areaCodes": null }, { "name": "New Caledonia", "iso2": "nc", "dialCode": "687", "priority": 0, "areaCodes": null }, { "name": "New Zealand", "iso2": "nz", "dialCode": "64", "priority": 0, "areaCodes": null }, { "name": "Nicaragua", "iso2": "ni", "dialCode": "505", "priority": 0, "areaCodes": null }, { "name": "Niger", "iso2": "ne", "dialCode": "227", "priority": 0, "areaCodes": null }, { "name": "Nigeria", "iso2": "ng", "dialCode": "234", "priority": 0, "areaCodes": null }, { "name": "Niue", "iso2": "nu", "dialCode": "683", "priority": 0, "areaCodes": null }, { "name": "Norfolk Island", "iso2": "nf", "dialCode": "672", "priority": 0, "areaCodes": null }, { "name": "North Korea", "iso2": "kp", "dialCode": "850", "priority": 0, "areaCodes": null }, { "name": "Northern Mariana Islands", "iso2": "mp", "dialCode": "1670", "priority": 0, "areaCodes": null }, { "name": "Norway", "iso2": "no", "dialCode": "47", "priority": 0, "areaCodes": null }, { "name": "Oman", "iso2": "om", "dialCode": "968", "priority": 0, "areaCodes": null }, { "name": "Pakistan", "iso2": "pk", "dialCode": "92", "priority": 0, "areaCodes": null }, { "name": "Palau", "iso2": "pw", "dialCode": "680", "priority": 0, "areaCodes": null }, { "name": "Palestine", "iso2": "ps", "dialCode": "970", "priority": 0, "areaCodes": null }, { "name": "Panama", "iso2": "pa", "dialCode": "507", "priority": 0, "areaCodes": null }, { "name": "Papua New Guinea", "iso2": "pg", "dialCode": "675", "priority": 0, "areaCodes": null }, { "name": "Paraguay", "iso2": "py", "dialCode": "595", "priority": 0, "areaCodes": null }, { "name": "Peru", "iso2": "pe", "dialCode": "51", "priority": 0, "areaCodes": null }, { "name": "Philippines", "iso2": "ph", "dialCode": "63", "priority": 0, "areaCodes": null }, { "name": "Poland", "iso2": "pl", "dialCode": "48", "priority": 0, "areaCodes": null }, { "name": "Portugal", "iso2": "pt", "dialCode": "351", "priority": 0, "areaCodes": null }, { "name": "Puerto Rico", "iso2": "pr", "dialCode": "1", "priority": 3, "areaCodes": ["787", "939"] }, { "name": "Qatar", "iso2": "qa", "dialCode": "974", "priority": 0, "areaCodes": null }, { "name": "Réunion", "iso2": "re", "dialCode": "262", "priority": 0, "areaCodes": null }, { "name": "Romania", "iso2": "ro", "dialCode": "40", "priority": 0, "areaCodes": null }, { "name": "Russia", "iso2": "ru", "dialCode": "7", "priority": 0, "areaCodes": null }, { "name": "Rwanda", "iso2": "rw", "dialCode": "250", "priority": 0, "areaCodes": null }, { "name": "Saint Barthélemy", "iso2": "bl", "dialCode": "590", "priority": 1, "areaCodes": null }, { "name": "Saint Helena", "iso2": "sh", "dialCode": "290", "priority": 0, "areaCodes": null }, { "name": "Saint Kitts and Nevis", "iso2": "kn", "dialCode": "1869", "priority": 0, "areaCodes": null }, { "name": "Saint Lucia", "iso2": "lc", "dialCode": "1758", "priority": 0, "areaCodes": null }, { "name": "Saint Martin", "iso2": "mf", "dialCode": "590", "priority": 2, "areaCodes": null }, { "name": "Saint Pierre and Miquelon", "iso2": "pm", "dialCode": "508", "priority": 0, "areaCodes": null }, { "name": "Saint Vincent and the Grenadines", "iso2": "vc", "dialCode": "1784", "priority": 0, "areaCodes": null }, { "name": "Samoa", "iso2": "ws", "dialCode": "685", "priority": 0, "areaCodes": null }, { "name": "San Marino", "iso2": "sm", "dialCode": "378", "priority": 0, "areaCodes": null }, { "name": "São Tomé and Príncipe", "iso2": "st", "dialCode": "239", "priority": 0, "areaCodes": null }, { "name": "Saudi Arabia", "iso2": "sa", "dialCode": "966", "priority": 0, "areaCodes": null }, { "name": "Senegal", "iso2": "sn", "dialCode": "221", "priority": 0, "areaCodes": null }, { "name": "Serbia", "iso2": "rs", "dialCode": "381", "priority": 0, "areaCodes": null }, { "name": "Seychelles", "iso2": "sc", "dialCode": "248", "priority": 0, "areaCodes": null }, { "name": "Sierra Leone", "iso2": "sl", "dialCode": "232", "priority": 0, "areaCodes": null }, { "name": "Singapore", "iso2": "sg", "dialCode": "65", "priority": 0, "areaCodes": null }, { "name": "Sint Maarten", "iso2": "sx", "dialCode": "1721", "priority": 0, "areaCodes": null }, { "name": "Slovakia", "iso2": "sk", "dialCode": "421", "priority": 0, "areaCodes": null }, { "name": "Slovenia", "iso2": "si", "dialCode": "386", "priority": 0, "areaCodes": null }, { "name": "Solomon Islands", "iso2": "sb", "dialCode": "677", "priority": 0, "areaCodes": null }, { "name": "Somalia", "iso2": "so", "dialCode": "252", "priority": 0, "areaCodes": null }, { "name": "South Africa", "iso2": "za", "dialCode": "27", "priority": 0, "areaCodes": null }, { "name": "South Korea", "iso2": "kr", "dialCode": "82", "priority": 0, "areaCodes": null }, { "name": "South Sudan", "iso2": "ss", "dialCode": "211", "priority": 0, "areaCodes": null }, { "name": "Spain", "iso2": "es", "dialCode": "34", "priority": 0, "areaCodes": null }, { "name": "Sri Lanka", "iso2": "lk", "dialCode": "94", "priority": 0, "areaCodes": null }, { "name": "Sudan", "iso2": "sd", "dialCode": "249", "priority": 0, "areaCodes": null }, { "name": "Suriname", "iso2": "sr", "dialCode": "597", "priority": 0, "areaCodes": null }, { "name": "Svalbard and Jan Mayen", "iso2": "sj", "dialCode": "47", "priority": 1, "areaCodes": null }, { "name": "Swaziland", "iso2": "sz", "dialCode": "268", "priority": 0, "areaCodes": null }, { "name": "Sweden", "iso2": "se", "dialCode": "46", "priority": 0, "areaCodes": null }, { "name": "Switzerland", "iso2": "ch", "dialCode": "41", "priority": 0, "areaCodes": null }, { "name": "Syria", "iso2": "sy", "dialCode": "963", "priority": 0, "areaCodes": null }, { "name": "Taiwan", "iso2": "tw", "dialCode": "886", "priority": 0, "areaCodes": null }, { "name": "Tajikistan", "iso2": "tj", "dialCode": "992", "priority": 0, "areaCodes": null }, { "name": "Tanzania", "iso2": "tz", "dialCode": "255", "priority": 0, "areaCodes": null }, { "name": "Thailand", "iso2": "th", "dialCode": "66", "priority": 0, "areaCodes": null }, { "name": "Timor-Leste", "iso2": "tl", "dialCode": "670", "priority": 0, "areaCodes": null }, { "name": "Togo", "iso2": "tg", "dialCode": "228", "priority": 0, "areaCodes": null }, { "name": "Tokelau", "iso2": "tk", "dialCode": "690", "priority": 0, "areaCodes": null }, { "name": "Tonga", "iso2": "to", "dialCode": "676", "priority": 0, "areaCodes": null }, { "name": "Trinidad and Tobago", "iso2": "tt", "dialCode": "1868", "priority": 0, "areaCodes": null }, { "name": "Tunisia", "iso2": "tn", "dialCode": "216", "priority": 0, "areaCodes": null }, { "name": "Turkey", "iso2": "tr", "dialCode": "90", "priority": 0, "areaCodes": null }, { "name": "Turkmenistan", "iso2": "tm", "dialCode": "993", "priority": 0, "areaCodes": null }, { "name": "Turks and Caicos Islands", "iso2": "tc", "dialCode": "1649", "priority": 0, "areaCodes": null }, { "name": "Tuvalu", "iso2": "tv", "dialCode": "688", "priority": 0, "areaCodes": null }, { "name": "U.S. Virgin Islands", "iso2": "vi", "dialCode": "1340", "priority": 0, "areaCodes": null }, { "name": "Uganda", "iso2": "ug", "dialCode": "256", "priority": 0, "areaCodes": null }, { "name": "Ukraine", "iso2": "ua", "dialCode": "380", "priority": 0, "areaCodes": null }, { "name": "United Arab Emirates", "iso2": "ae", "dialCode": "971", "priority": 0, "areaCodes": null }, { "name": "United Kingdom", "iso2": "gb", "dialCode": "44", "priority": 0, "areaCodes": null }, { "name": "United States", "iso2": "us", "dialCode": "1", "priority": 0, "areaCodes": null }, { "name": "Uruguay", "iso2": "uy", "dialCode": "598", "priority": 0, "areaCodes": null }, { "name": "Uzbekistan", "iso2": "uz", "dialCode": "998", "priority": 0, "areaCodes": null }, { "name": "Vanuatu", "iso2": "vu", "dialCode": "678", "priority": 0, "areaCodes": null }, { "name": "Vatican City", "iso2": "va", "dialCode": "39", "priority": 1, "areaCodes": null }, { "name": "Venezuela", "iso2": "ve", "dialCode": "58", "priority": 0, "areaCodes": null }, { "name": "Vietnam", "iso2": "vn", "dialCode": "84", "priority": 0, "areaCodes": null }, { "name": "Wallis and Futuna", "iso2": "wf", "dialCode": "681", "priority": 0, "areaCodes": null }, { "name": "Western Sahara", "iso2": "eh", "dialCode": "212", "priority": 1, "areaCodes": null }, { "name": "Yemen", "iso2": "ye", "dialCode": "967", "priority": 0, "areaCodes": null }, { "name": "Zambia", "iso2": "zm", "dialCode": "260", "priority": 0, "areaCodes": null }, { "name": "Zimbabwe", "iso2": "zw", "dialCode": "263", "priority": 0, "areaCodes": null }, { "name": "Åland Islands", "iso2": "ax", "dialCode": "358", "priority": 1, "areaCodes": null }];
     var countryDocuments = [];
     getPrivacyPolicyList();
-
     function getPrivacyPolicyList() {
       var policyFooterSelector = window.document.getElementById('policyCountrySelector');
       var xmlhttp = new XMLHttpRequest();
@@ -4344,8 +4336,6 @@
       xmlhttp.open("GET", "https://users-service-dev.test.teamplay.siemens.com/api/agreement?docTypes=DataPrivacyPolicy", true);
       xmlhttp.send();
     }
-
-
     function translateStrings() {
       $("[data-translate]").each(function () {
         var key = $(this).data('translate');
@@ -4353,9 +4343,6 @@
       });
     }
     translateStrings();
-
-
-
     function translatePage(currentLanguageId) {
       currentLanguages = locales.filter(function (langObj) {
         return langObj.LocaleId == currentLanguageId;
@@ -4363,14 +4350,12 @@
       currentLanguage = currentLanguages[0];
       translateStrings();
     }
-
     if (!String.prototype.includes) {
       String.prototype.includes = function (search, start) {
         'use strict';
         if (typeof start !== 'number') {
           start = 0;
         }
-
         if (start + search.length > this.length) {
           return false;
         } else {
@@ -4378,31 +4363,26 @@
         }
       };
     }
-
     window.addEventListener('load', function () {
-      //unComment below mentioned code to work in local	
+      //unComment below mentioned code to work in local 
       /*
        var config = JSON.parse(
          decodeURIComponent(escape(window.atob('eyJhc3NldHNVcmwiOiIiLCJhdXRoMERvbWFpbiI6InNoY3Rlc3QuYXV0aDAuY29tIiwiYXV0aDBUZW5hbnQiOiJzaGN0ZXN0IiwiY2xpZW50Q29uZmlndXJhdGlvbkJhc2VVcmwiOiJodHRwczovL2Nkbi5hdXRoMC5jb20vIiwiY2FsbGJhY2tPbkxvY2F0aW9uSGFzaCI6ZmFsc2UsImNhbGxiYWNrVVJMIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg1L2xvZ2luQXV0aDAuaHRtbCIsImNkbiI6Imh0dHBzOi8vc2RrLmF1dGgwLmNvbS8iLCJjbGllbnRJRCI6IjlNSUxBZFBKeEpVYXVaTXBtNmxQT3k0WFFBNVJyNGt3IiwiZGljdCI6eyJzaWduaW4iOnsidGl0bGUiOiJsb2NhbEJhc2VBcHAifX0sImV4dHJhUGFyYW1zIjp7InByb3RvY29sIjoib2F1dGgyIiwic2NvcGUiOiJvcGVuaWQiLCJhdWRpZW5jZSI6Imh0dHBzOi8vc2hjdGVzdC5hdXRoMC5jb20vdXNlcmluZm8iLCJub25jZSI6IkdLZVRhLmRhcXRWNWFLNFJuSDhYVi5PcWJTNkJ0dGlCIiwiYXV0aDBDbGllbnQiOiJleUp1WVcxbElqb2lZWFYwYURBdWFuTWlMQ0oyWlhKemFXOXVJam9pT1M0MUxqRWlmUT09IiwidGVuYW50Ijoic2hjdGVzdCIsInR5cGUiOiJ0b2tlbiBpZF90b2tlbiIsImNsaWVudElEIjoiOU1JTEFkUEp4SlVhdVpNcG02bFBPeTRYUUE1UnI0a3ciLCJyZWRpcmVjdFVSSSI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4NS9sb2dpbkF1dGgwLmh0bWwiLCJfY3NyZiI6InlGVDU4RXU2LWVGNDNDX0lqS0piMkF0MU5rNmM3Wm1CZHg1VSIsIl9pbnRzdGF0ZSI6ImRlcHJlY2F0ZWQiLCJzdGF0ZSI6InhrQjBDbk9wTUc3dVg0c0VreGNCcF9vdVBCblVma1QwIn0sImludGVybmFsT3B0aW9ucyI6eyJwcm90b2NvbCI6Im9hdXRoMiIsInNjb3BlIjoib3BlbmlkIiwiYXVkaWVuY2UiOiJodHRwczovL3NoY3Rlc3QuYXV0aDAuY29tL3VzZXJpbmZvIiwibm9uY2UiOiJHS2VUYS5kYXF0VjVhSzRSbkg4WFYuT3FiUzZCdHRpQiIsImF1dGgwQ2xpZW50IjoiZXlKdVlXMWxJam9pWVhWMGFEQXVhbk1pTENKMlpYSnphVzl1SWpvaU9TNDFMakVpZlE9PSIsInRlbmFudCI6InNoY3Rlc3QiLCJ0eXBlIjoidG9rZW4gaWRfdG9rZW4iLCJjbGllbnRJRCI6IjlNSUxBZFBKeEpVYXVaTXBtNmxQT3k0WFFBNVJyNGt3IiwicmVkaXJlY3RVUkkiOiJodHRwOi8vbG9jYWxob3N0OjgwODUvbG9naW5BdXRoMC5odG1sIiwiX2NzcmYiOiJ5RlQ1OEV1Ni1lRjQzQ19JaktKYjJBdDFOazZjN1ptQmR4NVUiLCJfaW50c3RhdGUiOiJkZXByZWNhdGVkIiwic3RhdGUiOiJ4a0IwQ25PcE1HN3VYNHNFa3hjQnBfb3VQQm5VZmtUMCJ9LCJ3aWRnZXRVcmwiOiJodHRwczovL2Nkbi5hdXRoMC5jb20vdzIvYXV0aDAtd2lkZ2V0LTUuMS5taW4uanMiLCJpc1RoaXJkUGFydHlDbGllbnQiOmZhbHNlLCJhdXRob3JpemF0aW9uU2VydmVyIjp7InVybCI6Imh0dHBzOi8vc2hjdGVzdC5hdXRoMC5jb20iLCJpc3N1ZXIiOiJodHRwczovL3NoY3Rlc3QuYXV0aDAuY29tLyJ9fQ==')))
        );
       */
-      //Uncomment below mentioned code to work in auth0			 
-
+      //Uncomment below mentioned code to work in auth0      
       var config = JSON.parse(
         decodeURIComponent(escape(window.atob('@@config@@')))
       );
-
       var params = Object.assign({
         domain: config.auth0Domain,
         clientID: config.clientID,
         redirectUri: config.callbackURL,
         responseType: 'code'
       }, config.internalOptions);
-
       var webAuth = new auth0.WebAuth(params);
       var clienttest = 'CESONLY';
       var databaseConnection = 'Username-Password-Authentication';
-
       if (config.dict.signin.title.includes(clienttest)) {
         loginWithSiemens();
       }
@@ -4474,12 +4454,15 @@
       }
 
       function signup(e) {
+        if (!isValidForm()) {
+          return;
+        }
         e.preventDefault();
         var email = document.getElementById('email-reg').value;
         var password = document.getElementById('password-reg').value;
         var firstname = document.getElementById('firstName').value;
         var lastname = document.getElementById('lastName').value;
-
+      
         webAuth.redirect.signupAndLogin({
           connection: databaseConnection,
           email: email,
@@ -4488,9 +4471,9 @@
             given_name: firstname,
             family_name: lastname
           }
-        }, function (err) {
-          if (err) displayError(err);
-        });
+        }, function(err) {
+            if (err) displayRegistrationError(err);
+          });
       }
 
       function loginWithSiemens(username) {
@@ -4517,7 +4500,26 @@
         errorMessage.innerHTML = err.description;
         messageContainer.style.display = 'block';
       }
-
+      function displayRegistrationError(err) {
+        var messageContainer = document.getElementById('registrationMessageContainer');
+        var errorMessage = document.getElementById('txtRegistrationMessage');
+        errorMessage.innerHTML = err.description;
+        messageContainer.style.display = 'block';
+      }
+     
+     function isValid(element, type, data) {
+      switch (type) {
+        case "email": return /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/.test(data.toLocaleLowerCase());
+        case "password": return /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[-+_=?{}()<>|"'/.,:;~@#$%^&*!/\\[ \]]).{8,64}$/.test(data);
+        case "retypepassword": return $("#password-reg").val() === data;
+        case "checkbox": return element.is(":checked");
+        default: return true;
+      }
+    }
+     function isValidForm() {
+      $('#register-form input[required]').trigger('blur');
+      return $('#register-form input[required]').parent().find('.std-input-error').length === 0;
+      }
       function redirectToResetPassword(e) {
         e.preventDefault();
         var loginSubView = document.getElementById('loginSubView');
@@ -4575,10 +4577,77 @@
         $('#redirectToLoginBtn').on('click', redirectToLogin);
         $('#resendPasswordLink').on('click', redirectToResetPassword);
         $('#ResetPasswordCancelBtn').on('click', redirectToLogin);
+
+       $('#register-form input[required]').on('blur', function () { 
+          $(this).parent().find('input').removeClass('std-input-success');
+          var errorBlockId = $(this).attr("data-test-id");
+          errorBlockId = errorBlockId + 'Message';
+          var errorMessage = document.getElementById(errorBlockId);
+          var passwordErrorMessage = document.getElementById("passwordErrorMessage");
+          var retypePasswordErrorMessage = document.getElementById("retypePasswordErrorMessage");
+          errorMessage.style.display = 'none';
+          
+          if($(this).val()===""){
+            errorMessage.style.display = 'block';
+            $(this).parent().find('input').addClass('std-input-error');
+          } 
+          else {
+            if(isValid($(this), $(this).attr("pattern-type"), $(this).val())) {
+              errorMessage.style.display = 'none';
+              if($(this).attr("pattern-type") === "password")
+              {
+                passwordErrorMessage.style.display = 'none';
+              }
+              else if($(this).attr("pattern-type") === "retypepassword"){
+                retypePasswordErrorMessage.style.display = 'none';
+              }
+              $(this).parent().find('input').removeClass('std-input-error');       
+            } else {
+              $(this).parent().find('input').addClass('std-input-error');
+              if($(this).attr("pattern-type") === "password")
+              {
+                passwordErrorMessage.style.display = 'block';
+              }
+              else if($(this).attr("pattern-type") === "retypepassword"){
+                retypePasswordErrorMessage.style.display = 'block';
+              }
+              else{
+                errorMessage.style.display = 'block';
+              }                             
+            }
+          }
+        });
+        $('#register-form input[required]').on('focus', function () {
+          if($(this).val() !== "") {
+            $(this).parent().find('input').addClass('std-input-success');
+          } 
+        });
+        $("#selectCountry").on("change", function () {
+          $("#privacyPolicyChkBox").attr("disabled", "disabled");
+          var selectedCountry = $(this).find(":selected").val();
+          var selectedCountryName = $(this).find(":selected").text();
+          $.ajax({
+              url:"https://users-service-dev.test.teamplay.siemens.com/api/agreement?countries="+selectedCountryName+"&docTypes=DataPrivacyPolicy",
+                       method: "GET",
+          }).then(function (policyDocuments) {
+            if(policyDocuments && policyDocuments.length > 0) {
+              var currentDocument = policyDocuments.filter(function (doc) {
+                if (doc.Country.toLowerCase() === selectedCountryName.toLowerCase()) {
+                 $('[data-test-id="privacyPolicyLink"]').attr('href', doc.DocumentUrl);
+                 $("#privacyPolicyChkBox").attr("disabled", false);
+                 $('[data-test-id="privacyPolicyText"]').attr("hidden", true);
+                 $('[data-test-id="privacyPolicyLink"]').attr("hidden", false); 
+                 return true;
+               }
+              });
+            }
+          }, function (error) {
+
+          });
+        });
       });
     });
-
-
+  
     /*validation*/
     function validateEmail(emailField) {
       var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -4589,10 +4658,8 @@
       } else {
         emailValidationMessage.style.display = 'none';
       }
-
       return true;
     }
-
     function validateResetPwdEmail(emailField) {
       var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
       var emailValidationMessage = document.getElementById('resetPwdEmailValidationMsg');
@@ -4605,7 +4672,6 @@
       return true;
     }
     function validatePassword(passwordField) {
-
       var emailValidationMessage = document.getElementById('passwordValidationMessage');
       if (passwordField.value === '') {
         emailValidationMessage.style.display = 'block';
@@ -4613,10 +4679,8 @@
       } else {
         emailValidationMessage.style.display = 'none';
       }
-
       return true;
     }
-
   </script>
 </body>
 
