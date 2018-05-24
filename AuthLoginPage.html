@@ -2949,7 +2949,7 @@
                <div class="tab-vew-main">
                   <ul class="nav nav-tabs" id="loginPageTab">
                      <li class="active" id="loginTab">
-                        <a data-toggle="tab" href="#login" data-translate="Login">Login</a>
+                        <a data-toggle="tab" href="#login" id="LoginTab" data-translate="Login">Login</a>
                      </li>
                      <li>
                         <a data-toggle="tab" href="#register" id="RegisterTab" data-translate="Registration"></a>
@@ -3037,11 +3037,11 @@
                                     <!-- ngIf: registerModel.form.message -->
                                     <div ng-if="registerModel.form.message" class="pb-2 row ng-scope">
                                        <div class="col-sm-12">
-                                          <div class="row ng-isolate-scope" ui-message="" level="success" title="Thank you for registering with teamplay. We have sent you an activation link to your email address rahul.bisht331@yopmail.com.</br></br>If you don't see a message in your inbox, make sure that the email address is correct and check your spam or junk folder." message="" icon="icon-check-mark" test-id="resetMsg">
+                                          <div class="row ng-isolate-scope" ui-message="" level="success" message="" icon="icon-check-mark" test-id="resetMsg">
                                              <div class="col-sm-12">
                                                 <section class="ui-message" data-message-level="success">
                                                    <!-- ngIf: icon --><i ng-if="icon" class="text-center img-circle icon-check-mark"></i><!-- end ngIf: icon -->
-                                                   <h6 data-test-id="resetMsgTitle" ng-bind-html="trustedTitleHtml()" class="ng-binding">Thank you for registering with teamplay. We have sent you an activation link to your email address rahul.bisht331@yopmail.com.<br><br>If you don't see a message in your inbox, make sure that the email address is correct and check your spam or junk folder.</h6>
+                                                   <h6 data-test-id="resetMsgTitle" ng-bind-html="trustedTitleHtml()" class="ng-binding">Thank you for registering with teamplay. We have sent you an activation link to your email address <span id="registerdEmail"></span>.<br><br>If you don't see a message in your inbox, make sure that the email address is correct and check your spam or junk folder.</h6>
                                                    <!-- ngIf: moreInfo -->
                                                    <p ng-show="messageVisibility" data-test-id="resetMsg" ng-bind-html="trustedMessageHtml()" class="ng-binding"></p>
                                                 </section>
@@ -3050,7 +3050,7 @@
                                        </div>
                                     </div>
                                     <!-- end ngIf: registerModel.form.message -->
-                                    <a class="mt-1 pull-left simple-button-color simple-button ng-binding ng-isolate-scope" ng-class="{'simple-button-disabled':isDisabled}" ng-click="handleClick($event)" ng-disabled="isDisabled" data-test-id="" simple-button="" icon="" label="Back to log in" on-click="mainModel.toggleTabs('Login')">
+                                    <a class="mt-1 pull-left simple-button-color simple-button ng-binding ng-isolate-scope" ng-class="{'simple-button-disabled':isDisabled}" ng-click="handleClick($event)" ng-disabled="isDisabled" id="backToLoginBtn" simple-button="" icon="" label="Back to log in">
                                        <!--<i
                                           ng-if="icon && !isLoading"
                                           class="{{ icon }}"
@@ -5240,17 +5240,17 @@
          }
          window.addEventListener('load', function() {
              //unComment below mentioned code to work in local 
-             
+         /*    
          var config = JSON.parse(
           decodeURIComponent(escape(window.atob('eyJhc3NldHNVcmwiOiIiLCJhdXRoMERvbWFpbiI6InNoY3Rlc3QuYXV0aDAuY29tIiwiYXV0aDBUZW5hbnQiOiJzaGN0ZXN0IiwiY2xpZW50Q29uZmlndXJhdGlvbkJhc2VVcmwiOiJodHRwczovL2Nkbi5hdXRoMC5jb20vIiwiY2FsbGJhY2tPbkxvY2F0aW9uSGFzaCI6ZmFsc2UsImNhbGxiYWNrVVJMIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg1L2xvZ2luQXV0aDAuaHRtbCIsImNkbiI6Imh0dHBzOi8vc2RrLmF1dGgwLmNvbS8iLCJjbGllbnRJRCI6IjlNSUxBZFBKeEpVYXVaTXBtNmxQT3k0WFFBNVJyNGt3IiwiZGljdCI6eyJzaWduaW4iOnsidGl0bGUiOiJsb2NhbEJhc2VBcHAifX0sImV4dHJhUGFyYW1zIjp7InByb3RvY29sIjoib2F1dGgyIiwic2NvcGUiOiJvcGVuaWQiLCJhdWRpZW5jZSI6Imh0dHBzOi8vc2hjdGVzdC5hdXRoMC5jb20vdXNlcmluZm8iLCJub25jZSI6IkdLZVRhLmRhcXRWNWFLNFJuSDhYVi5PcWJTNkJ0dGlCIiwiYXV0aDBDbGllbnQiOiJleUp1WVcxbElqb2lZWFYwYURBdWFuTWlMQ0oyWlhKemFXOXVJam9pT1M0MUxqRWlmUT09IiwidGVuYW50Ijoic2hjdGVzdCIsInR5cGUiOiJ0b2tlbiBpZF90b2tlbiIsImNsaWVudElEIjoiOU1JTEFkUEp4SlVhdVpNcG02bFBPeTRYUUE1UnI0a3ciLCJyZWRpcmVjdFVSSSI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4NS9sb2dpbkF1dGgwLmh0bWwiLCJfY3NyZiI6InlGVDU4RXU2LWVGNDNDX0lqS0piMkF0MU5rNmM3Wm1CZHg1VSIsIl9pbnRzdGF0ZSI6ImRlcHJlY2F0ZWQiLCJzdGF0ZSI6InhrQjBDbk9wTUc3dVg0c0VreGNCcF9vdVBCblVma1QwIn0sImludGVybmFsT3B0aW9ucyI6eyJwcm90b2NvbCI6Im9hdXRoMiIsInNjb3BlIjoib3BlbmlkIiwiYXVkaWVuY2UiOiJodHRwczovL3NoY3Rlc3QuYXV0aDAuY29tL3VzZXJpbmZvIiwibm9uY2UiOiJHS2VUYS5kYXF0VjVhSzRSbkg4WFYuT3FiUzZCdHRpQiIsImF1dGgwQ2xpZW50IjoiZXlKdVlXMWxJam9pWVhWMGFEQXVhbk1pTENKMlpYSnphVzl1SWpvaU9TNDFMakVpZlE9PSIsInRlbmFudCI6InNoY3Rlc3QiLCJ0eXBlIjoidG9rZW4gaWRfdG9rZW4iLCJjbGllbnRJRCI6IjlNSUxBZFBKeEpVYXVaTXBtNmxQT3k0WFFBNVJyNGt3IiwicmVkaXJlY3RVUkkiOiJodHRwOi8vbG9jYWxob3N0OjgwODUvbG9naW5BdXRoMC5odG1sIiwiX2NzcmYiOiJ5RlQ1OEV1Ni1lRjQzQ19JaktKYjJBdDFOazZjN1ptQmR4NVUiLCJfaW50c3RhdGUiOiJkZXByZWNhdGVkIiwic3RhdGUiOiJ4a0IwQ25PcE1HN3VYNHNFa3hjQnBfb3VQQm5VZmtUMCJ9LCJ3aWRnZXRVcmwiOiJodHRwczovL2Nkbi5hdXRoMC5jb20vdzIvYXV0aDAtd2lkZ2V0LTUuMS5taW4uanMiLCJpc1RoaXJkUGFydHlDbGllbnQiOmZhbHNlLCJhdXRob3JpemF0aW9uU2VydmVyIjp7InVybCI6Imh0dHBzOi8vc2hjdGVzdC5hdXRoMC5jb20iLCJpc3N1ZXIiOiJodHRwczovL3NoY3Rlc3QuYXV0aDAuY29tLyJ9fQ==')))
          );
-         
+         */
              //Uncomment below mentioned code to work in auth0      
-         /*
+         
              var config = JSON.parse(
                  decodeURIComponent(escape(window.atob('@@config@@')))
              );
-         */
+         
              var params = Object.assign({
                  domain: config.auth0Domain,
                  clientID: config.clientID,
@@ -5379,6 +5379,7 @@
                  }, function(err) {
                      if (err) displayRegistrationError(err);
                      else {
+                        document.getElementById('registerdEmail').innerText = email;
                         $('#registrationSucessfull').show();
                         $('#registerFormContainer').hide();
                      }
@@ -5480,6 +5481,7 @@
                  passwordResetForm.style.display = 'block';
                  var resetEmailId = document.getElementById('resetPasswordEmailId');
                  resetEmailId.value = '';
+                 
              }
          
              function validateRegisterForm() {
@@ -5516,10 +5518,14 @@
                  }
              }
          
-             function redirectTotRegisterUser() {
+             function redirectToRegisterUser() {
                  $('#RegisterTab').click();
              }
-         
+             function redirectToLoginPage() {
+                 $('#registrationSucessfull').hide();
+                 $('#registerFormContainer').show();
+                 $('#LoginTab').click();
+             }
              $(document).ready(function() {
                  $('#login-form').on('submit', login);
                  $('#btn-login').on('click', login);
@@ -5532,7 +5538,8 @@
                  $('#redirectToLoginBtn').on('click', redirectToLogin);
                  $('#resendPasswordLink').on('click', redirectToResetPassword);
                  $('#ResetPasswordCancelBtn').on('click', redirectToLogin);
-                 $('#registerUserLink').on('click', redirectTotRegisterUser);
+                 $('#registerUserLink').on('click', redirectToRegisterUser);
+                 $('#backToLoginBtn').on('click', redirectToLoginPage);
          
                  $('#register-form input[required]').on('blur', validateRegisterForm);
                  $('#register-form input[required]').on('focus', function() {
