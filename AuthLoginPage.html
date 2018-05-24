@@ -3022,74 +3022,7 @@
                                     <input class="hidden" type="submit">
                                  </form>
                               </div>
-                              <!-- Password reset start -->
-                              <div class="row mx-0" id="passwordResetContainer" style="display:none">
-                                 <form id="resetPasswordForm" class="col-md-12 " id="resetPasswordForm">
-                                    <h1 class="m-0 mb-2 " data-translate="Reset password"></h1>
-                                    <p class="m-0 padding-top-8 textopacity-sec" data-translate="Reset your password using your teamplay email address."></p>
-                                    <div class="row margin-top-17">
-                                       <div class="col-sm-12 standard-input text required" standard-input="" error="" type="text" label="Email" required="required">
-                                          <div class="input-wrapper">
-                                             <input id="resetPasswordEmailId" name="email" type="text" placeholder="" onblur="validateResetPwdEmail(this)">
-                                             <label>
-                                             <span data-translate="Email"></span>
-                                             </label>
-                                          </div>
-                                          <cite id="resetPwdEmailValidationMsg" style="display:none" class="ng-binding" data-translate="Please enter a valid email"></cite>
-                                       </div>
-                                    </div>
-                                    <div class="row" style="display: none">
-                                       <div captcha="" height="172px" width="300px" scrolling="false" class="col-sm-12 ">
-                                          <div style="width:100%">
-                                             <div class="captchaHeadingLabel pull-left textopacity-sec ng-binding" style="width:100%;font-size: 18px !important; font-weight: normal !important; margin-bottom: 9px;" ng-show="!configuration.status">Retype the characters from the picture:</div>
-                                          </div>
-                                          <div class="holdsCaptcha" style="position: relative;">
-                                             <div id="captcha-spinner" class="page-splash" style="height: 172px; width: 300px; visibility: hidden;">
-                                                <div id="mainSpinner" class="buffering page" style="top: 50%;">
-                                                   <div class="ring"></div>
-                                                   <div class="point"></div>
-                                                </div>
-                                             </div>
-                                             <iframe id="CaptchaFrame" onload="$('#captcha-spinner').css('visibility', 'hidden');" class="frame" height="172px" width="300px" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="false" ng-hide="configuration.status" src="https://captcha-service-formaltest.test.teamplay.siemens.com/?LocaleCode=en-US"></iframe>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="row">
-                                       <div class="col-sm-12">
-                                          <a id="ResetPasswordCancelBtn" class="mt-1 pull-left simple-button-secondry-color simple-button " data-translate="Cancel">
-                                          </a>
-                                          <a id="ResetPasswordBtn" class="mt-1 pull-left simple-button-color simple-button " data-test-id="" simple-button="" icon="" data-translate="Reset password" label="Reset password">
-                                          </a>
-                                       </div>
-                                    </div>
-                                    <input class="hidden" type="submit">
-                                 </form>
-                                 <!-- Password reset success subview -->
-                                 <div id="passwordResetSucessContainer" style="display:none" class="row padding-left-39 ng-hide">
-                                    <h1 class="m-0 mb-2" translate="" data-translate="Reset password"></h1>
-                                    <div class="pb-2 row ng-scope">
-                                       <div class="col-sm-12">
-                                          <div class="row ng-isolate-scope" ui-message="" level="success" title="A reset link has been sent to your email address " message="" icon="icon-check-mark" test-id="resetMsg">
-                                             <div class="col-sm-12">
-                                                <section class="ui-message" data-message-level="success">
-                                                   <!-- ngIf: icon -->
-                                                   <i ng-if="icon" class="text-center img-circle icon-check-mark"></i>
-                                                   <!-- end ngIf: icon -->
-                                                   <h6 data-test-id="resetMsgTitle" class="ng-binding" data-translate="A reset link has been sent to your email address"> </h6>
-                                                </section>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- ngIf: resetModel.form.message -->
-                                    <p class="m-0 mb-3 ng-binding">No email received? Please check your spam filter or
-                                       <a id='resendPasswordLink'> click here </a> to resend password.
-                                    </p>
-                                    <a class="mt-1 pull-left simple-button-color simple-button" data-test-id="" simple-button="" icon="" label="Back to log in" id='redirectToLoginBtn' data-translate="Back to log in">
-                                    </a>
-                                 </div>
-                              </div>
-                              <!---------------------Reset Password ends----------------------------------------------->
+                           
                            </div>
                         </span>
                      </div>
@@ -3342,6 +3275,25 @@
                                              </div>
                                           </div>
                                        </div>
+                                       <input type="hidden" id="captchaValue" value="">
+                                       <div class="row">
+                                        <div  id="holdsCaptcha" captcha="" height="172px" width="300px" scrolling="false" class="col-sm-12 ">
+                                           <div style="width:100%">
+                                              <div class="captchaHeadingLabel pull-left textopacity-sec ng-binding" style="width:100%;font-size: 18px !important; font-weight: normal !important; margin-bottom: 9px;" ng-show="!configuration.status">Retype the characters from the picture:</div>
+                                           </div>
+                                           <div  style="position: relative;">
+                                              <div id="captcha-spinner" class="page-splash" style="height: 172px; width: 300px; visibility: hidden;">
+                                                 <div id="mainSpinner" class="buffering page" style="top: 50%;">
+                                                    <div class="ring"></div>
+                                                    <div class="point"></div>
+                                                 </div>
+                                              </div>
+                                              <iframe id="CaptchaFrame" onload="$('#captcha-spinner').css('visibility', 'hidden');" class="frame" height="172px" width="300px" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="false"  src="https://captcha-service-dev.test.teamplay.siemens.com/?LocaleCode=en-US"></iframe> 
+                                            </div>
+                                        </div>
+                                        <div style="display:none;" id="captchaValidationSuccess" class="ng-scope"><label style="color: green;font-size: 18px !important;font-weight: normal;" class="ng-binding">Captcha validation successful !! </label></div>
+                                     </div>
+
                                        <div class="row zero-margin-top">
                                           <div class="margin-top-24 margin-bottom-30 col-sm-6">
                                              <a id="btn-signup" class="pull-left simple-button-color simple-button ng-binding ng-isolate-scope" ng-click="handleClick($event)" ng-disabled="isDisabled" data-test-id="UserRegistration " simple-button="" icon="icon-arrow-right-large" label="Register" on-click="registerModel.form.submit($event)" is-disabled="registerModel.form.isSubmitting" is-loading="registerModel.form.isSubmitting" tabindex="0" data-translate="Register">
@@ -5334,7 +5286,31 @@
              };
              script.src = config.clientConfigurationBaseUrl + 'client/' + config.clientID + '.js?t' + new Date();
              document.getElementsByTagName('head')[0].appendChild(script);
-         
+           
+             var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+                var eventWindow = window[eventMethod];
+                var messageEvent = eventMethod === "attachEvent" ? "onmessage" : "message";
+
+                //Get the Response from captcha server and sets the validate property
+                eventWindow(messageEvent, function (e) {
+                    //Added this vaildation to ignore other messages from other service.
+                    if (e.data && e.data.messageSource && e.data.messageSource === 'teamplay Captcha Service')
+                    {
+                      if(e.data.isValid)                      
+					   {
+					   var captchaContainer=document.getElementById('holdsCaptcha');
+					   captchaContainer.style.display='none';
+					  document.getElementById("captchaValue").value= e.data.currentInstanceId;
+                      var captchaValidationMessage =document.getElementById('captchaValidationSuccess');
+                      captchaValidationMessage.style.display='block';
+                      
+					   }
+                       
+                       
+                    }
+                }, false);
+
+
              function login(e) {
                  e.preventDefault();
          
@@ -5387,7 +5363,7 @@
                  var password = document.getElementById('password-reg').value;
                  var firstname = document.getElementById('firstName').value;
                  var lastname = document.getElementById('lastName').value;
-         
+                 var captchaResponse= document.getElementById('captchaValue').value;
                  webAuth.signup({
                      connection: databaseConnection,
                      email: email,
@@ -5396,7 +5372,7 @@
                          given_name: firstname,
                          family_name: lastname,
                          LocaleId: currentLanguage.LocaleCode,
-                         CaptchaResponse: "3c0a57dbec2e42619e676c4899afdd40",
+                         CaptchaResponse: captchaResponse,
                          Country: selectedCountryName,
          
                      }
