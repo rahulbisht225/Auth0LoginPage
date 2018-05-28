@@ -5176,6 +5176,7 @@
          /*Registration custom fields*/
          var selectedCountry = "";
          var selectedCountryName = "";
+         var selectedPrivacyPolicyId ="";
          
          getPrivacyPolicyList();
          
@@ -5374,6 +5375,7 @@
                          LocaleId: currentLanguage.LocaleCode,
                          CaptchaResponse: captchaResponse,
                          Country: selectedCountryName,
+                         privacyPolicyId: String(selectedPrivacyPolicyId)
          
                      }
                  }, function(err) {
@@ -5560,6 +5562,7 @@
                              var currentDocument = policyDocuments.filter(function(doc) {
          
                                  if (doc.Country.toLowerCase() === selectedCountryName.toLowerCase()) {
+                                    selectedPrivacyPolicyId = doc.Id;
                                      $('[data-test-id="privacyPolicyLink"]').attr('href', doc.DocumentUrl);
                                      $("#privacyPolicyChkBox").attr("disabled", false);
                                      $('[data-test-id="privacyPolicyText"]').attr("hidden", true);
