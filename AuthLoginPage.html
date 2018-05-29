@@ -5613,6 +5613,12 @@
               document.getElementById('firstName').value = "";
               document.getElementById('lastName').value = "";
               document.getElementById('passwordConfirmation').value = "";
+              document.getElementById('selectCountry').selectedIndex = 0;
+              $('[data-test-id="privacyPolicyText"]').attr("hidden", false);
+              $('[data-test-id="privacyPolicyLink"]').attr("hidden", true);
+              $('#privacyPolicyChkBox').prop('checked',false);
+              $("#privacyPolicyChkBox").attr("disabled", true);
+              
               
               //reset captcha
               var captchaContainer=document.getElementById('holdsCaptcha');
