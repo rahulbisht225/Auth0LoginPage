@@ -5677,17 +5677,11 @@
                          method: "GET",
                      }).then(function(policyDocuments) {
                          if (policyDocuments && policyDocuments.length > 0) {
-                             var currentDocument = policyDocuments.filter(function(doc) {
-         
-                                 if (doc.Country.toLowerCase() === selectedCountryName.toLowerCase()) {
-                                    selectedPrivacyPolicyId = doc.Id;
-                                     $('[data-test-id="privacyPolicyLink"]').attr('href', doc.DocumentUrl);
-                                     $("#privacyPolicyChkBox").attr("disabled", false);
-                                     $('[data-test-id="privacyPolicyText"]').attr("hidden", true);
-                                     $('[data-test-id="privacyPolicyLink"]').attr("hidden", false);
-                                     return true;
-                                 }
-                             });
+                           selectedPrivacyPolicyId = policyDocuments[0].Id;
+                           $('[data-test-id="privacyPolicyLink"]').attr('href', policyDocuments[0].DocumentUrl);
+                           $("#privacyPolicyChkBox").attr("disabled", false);
+                           $('[data-test-id="privacyPolicyText"]').attr("hidden", true);
+                           $('[data-test-id="privacyPolicyLink"]').attr("hidden", false);
                          }
                      }, function(error) {
          
