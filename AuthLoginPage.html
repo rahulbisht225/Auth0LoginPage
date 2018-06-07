@@ -2931,13 +2931,13 @@
                            <level class="label" data-translate="Language"></level>
                            <select onchange="translatePage(this.value)">
                               <option label="English" value="1" selected="selected">English</option>
-                              <option label="Français" value="3">Français</option>
+                              <option label="Fran�ais" value="3">Fran�ais</option>
                               <option label="Deutsch" value="4">Deutsch</option>
-                              <option label="Español" value="5">Español</option>
-                              <option label="中文" value="6">中文</option>
-                              <option label="日本語" value="7">日本語</option>
-                              <option label="한국어" value="8">한국어</option>
-                              <option label="Türkçe" value="9">Türkçe</option>
+                              <option label="Espa�ol" value="5">Espa�ol</option>
+                              <option label="??" value="6">??</option>
+                              <option label="???" value="7">???</option>
+                              <option label="???" value="8">???</option>
+                              <option label="T�rk�e" value="9">T�rk�e</option>
                            </select>
                            <span class="arrow icon-arrow-down-small"></span>
                         </div>
@@ -2962,19 +2962,15 @@
                               <div class="row mx-0" id="loginSubView">
                                  <form id="login-form" class="col-md-12">
                                     <h1 class="m-0 mb-2 padding-bottom-12" data-translate="Login"></h1>
-                                    <div id="loginMessageContainer" class="pb-3 ng-scope" style="display:none;">
+                                    <div id="loginMessageContainer" class="pb-3 " style="display:none;">
                                        <div>
-                                          <div class="row ng-isolate-scope" ui-message="" level="error" title="The email or password you entered is incorrect. Please be aware that log on from outside your country is currently not supported."
-                                             message="" icon="icon-close" test-id="txtLoginMessage" more-info="mainModel.form.message.moreInfo">
+                                          <div class="row">
                                              <div class="col-sm-12">
                                                 <section class="ui-message" data-message-level="error">
-                                                   <!-- ngIf: icon -->
-                                                   <i ng-if="icon" class="text-center img-circle icon-close"></i>
-                                                   <!-- end ngIf: icon -->
-                                                   <h6 id="txtLoginMessageTitle" class="ng-binding">The email or password you entered is incorrect. Please be aware that log on from outside
+                                                   <i class="text-center img-circle icon-close"></i>
+                                                   <h6 id="txtLoginMessageTitle">The email or password you entered is incorrect. Please be aware that log on from outside
                                                       your country is currently not supported.
                                                    </h6>
-                                                   <!-- ngIf: moreInfo -->
                                                 </section>
                                              </div>
                                           </div>
@@ -2989,7 +2985,7 @@
                                                 <span data-translate="Email"></span>
                                                 </label>
                                              </div>
-                                             <cite id="emailValidationMessage" style="display:none" class="ng-binding" data-translate="Please enter a valid email"></cite>
+                                             <cite id="emailValidationMessage" style="display:none" data-translate="Please enter a valid email"></cite>
                                           </div>
                                        </div>
                                     </div>
@@ -3002,13 +2998,13 @@
                                                 <span data-translate="Password"></span>
                                                 </label>
                                              </div>
-                                             <cite id="passwordValidationMessage" ng-show="error" class="ng-binding" style="display:none" data-translate="Needs to be filled"></cite>
+                                             <cite id="passwordValidationMessage" style="display:none" data-translate="Needs to be filled"></cite>
                                           </div>
                                           <a id="passwordResetLink" class="passwordResetLink" data-translate="Forgot password?"></a>
                                        </div>
                                     </div>
                                     <div class="clearfix padding-top-18">
-                                       <a id="btn-login" class="pull-left simple-button-color simple-button" icon="icon-arrow-right-large" label="Login" data-translate="Login">
+                                       <a id="btn-login" class="pull-left simple-button-color simple-button"  label="Login" data-translate="Login">
                                        <i class="icon-arrow-right-large"></i>
                                        </a>
                                        <p class="pull-left m-0 p-with-button padding-left-12">or log in with your
@@ -3035,7 +3031,7 @@
                                           <span data-translate="Email"></span>
                                           </label>
                                        </div>
-                                       <cite id="resetPwdEmailValidationMsg" style="display:none" class="ng-binding" data-translate="Please enter a valid email"></cite>
+                                       <cite id="resetPwdEmailValidationMsg" style="display:none" data-translate="Please enter a valid email"></cite>
                                     </div>
                                  </div>
                                  <div class="row" style="display: none">
@@ -3050,7 +3046,7 @@
                                                 <div class="point"></div>
                                              </div>
                                           </div>
-                                          <iframe id="CaptchaFrame-resetPassword" onload="$('#captcha-spinner').css('visibility', 'hidden');" class="frame" height="172px" width="300px" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="false" ng-hide="configuration.status" src="https://captcha-service-formaltest.test.teamplay.siemens.com/?LocaleCode=en-US"></iframe>
+                                          <iframe id="CaptchaFrame-resetPassword" onload="$('#captcha-spinner').css('visibility', 'hidden');" class="frame" height="172px" width="300px" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="false" ="configuration.status" src="https://captcha-service-formaltest.test.teamplay.siemens.com/?LocaleCode=en-US"></iframe>
                                        </div>
                                     </div>
                                  </div>
@@ -3058,24 +3054,23 @@
                                     <div class="col-sm-12">
                                        <a id="ResetPasswordCancelBtn" class="mt-1 pull-left simple-button-secondry-color simple-button " data-translate="Cancel">
                                        </a>
-                                       <a id="ResetPasswordBtn" class="mt-1 pull-left simple-button-color simple-button " data-test-id="" simple-button="" icon="" data-translate="Reset password" label="Reset password">
+                                       <a id="ResetPasswordBtn" class="mt-1 pull-left simple-button-color simple-button " data-translate="Reset password" label="Reset password">
                                        </a>
                                     </div>
                                  </div>
                                  <input class="hidden" type="submit">
                               </form>
                               <!-- Password reset success subview -->
-                              <div id="passwordResetSucessContainer" style="display:none" class="row padding-left-39 ng-hide">
+                              <div id="passwordResetSucessContainer" style="display:none" class="row padding-left-39 ">
                                  <h1 class="m-0 mb-2" translate="" data-translate="Reset password"></h1>
-                                 <div class="pb-2 row ng-scope">
+                                 <div class="pb-2 row ">
                                     <div class="col-sm-12">
-                                       <div class="row ng-isolate-scope" ui-message="" level="success" title="A reset link has been sent to your email address " message="" icon="icon-check-mark" test-id="resetMsg">
+                                       <div class="row " ui-message="" level="success" title="A reset link has been sent to your email address " message="" icon="icon-check-mark" test-id="resetMsg">
                                           <div class="col-sm-12">
                                              <section class="ui-message" data-message-level="success">
-                                                <!-- ngIf: icon -->
-                                                <i ng-if="icon" class="text-center img-circle icon-check-mark"></i>
+                                                <i  class="text-center img-circle icon-check-mark"></i>
                                                 <!-- end ngIf: icon -->
-                                                <h6 data-test-id="resetMsgTitle" class="ng-binding" data-translate="A reset link has been sent to your email address"> </h6>
+                                                <h6 data-test-id="resetMsgTitle"  data-translate="A reset link has been sent to your email address"> </h6>
                                              </section>
                                           </div>
                                        </div>
@@ -3089,40 +3084,28 @@
                                  </a>
                               </div>
                            </div>
-                           <!---------------------Reset Password ends----------------------------------------------->
-                           </div>
-                        </span>
-                     </div>
-                     <div id="register" class="tab-pane">
-                        <!-- ngInclude: '/Login/Views/userRegistrationView.html' -->
-                        <span ng-include="'/Login/Views/userRegistrationView.html'" ng-controller="UserRegistrationViewModel as registerModel" class="ng-scope">
-                           <div class="login-view py-4 ng-scope">
+                        <span class="">
+                           <div class="login-view py-4 ">
                               <div class="row mx-0">
-                                 <!-- ngIf: !registerModel.isRegisrationSuccess -->
                                  <div id="registrationSucessfull" hidden="true" class="row padding-left-39">
                                     <h1 class="m-0 mb-2" translate="">Register</h1>
                                     <!-- ngIf: registerModel.form.message -->
-                                    <div ng-if="registerModel.form.message" class="pb-2 row ng-scope">
+                                    <div class="pb-2 row ">
                                        <div class="col-sm-12">
-                                          <div class="row ng-isolate-scope" ui-message="" level="success" message="" icon="icon-check-mark" test-id="resetMsg">
+                                          <div class="row " ui-message="" level="success" message="" icon="icon-check-mark" test-id="resetMsg">
                                              <div class="col-sm-12">
                                                 <section class="ui-message" data-message-level="success">
-                                                   <!-- ngIf: icon --><i ng-if="icon" class="text-center img-circle icon-check-mark"></i><!-- end ngIf: icon -->
-                                                   <h6 data-test-id="resetMsgTitle" ng-bind-html="trustedTitleHtml()" class="ng-binding">Thank you for registering with teamplay. We have sent you an activation link to your email address <span id="registerdEmail"></span>.<br><br>If you don't see a message in your inbox, make sure that the email address is correct and check your spam or junk folder.</h6>
+                                                   <!-- ngIf: icon --><i  class="text-center img-circle icon-check-mark"></i><!-- end ngIf: icon -->
+                                                   <h6 data-test-id="resetMsgTitle" ng-bind-html="trustedTitleHtml()" >Thank you for registering with teamplay. We have sent you an activation link to your email address <span id="registerdEmail"></span>.<br><br>If you don't see a message in your inbox, make sure that the email address is correct and check your spam or junk folder.</h6>
                                                    <!-- ngIf: moreInfo -->
-                                                   <p ng-show="messageVisibility" data-test-id="resetMsg" ng-bind-html="trustedMessageHtml()" class="ng-binding"></p>
+                                                   <p ng-show="messageVisibility" data-test-id="resetMsg" ng-bind-html="trustedMessageHtml()" ></p>
                                                 </section>
                                              </div>
                                           </div>
                                        </div>
                                     </div>
-                                    <!-- end ngIf: registerModel.form.message -->
-                                    <a class="mt-1 pull-left simple-button-color simple-button ng-binding ng-isolate-scope" ng-class="{'simple-button-disabled':isDisabled}" ng-click="handleClick($event)" ng-disabled="isDisabled" id="backToLoginBtn" simple-button="" icon="" label="Back to log in">
-                                       <!--<i
-                                          ng-if="icon && !isLoading"
-                                          class="{{ icon }}"
-                                          ></i>-->
-                                       <!-- ngIf: isLoading -->
+                                    <a class="mt-1 pull-left simple-button-color simple-button ng-binding " label="Back to log in">
+                                     
                                        Back to log in
                                     </a>
                                  </div>
@@ -3130,20 +3113,17 @@
                                     <form id="register-form" class="col-xs-12 col-md-12">
                                        <h1 class="m-0 mb-2 ng-binding" data-translate="Register"></h1>
                                        <!-- ngIf: registerModel.form.message -->
-                                       <p class="ng-binding" data-translate="Register for your teamplay account in order to proceed.">
+                                       <p  data-translate="Register for your teamplay account in order to proceed.">
                                           Register for your teamplay account in order to proceed.
                                        </p>
-                                       <div id="registrationMessageContainer" class="pb-3 ng-scope" style="display:none;">
+                                       <div id="registrationMessageContainer" class="pb-3 " style="display:none;">
                                           <div>
-                                             <div class="row ng-isolate-scope" ui-message="" level="error" 
+                                             <div class="row " ui-message="" level="error" 
                                                 message="" icon="icon-close" test-id="txtRegistrationMessage">
                                                 <div class="col-sm-12">
                                                    <section class="ui-message" data-message-level="error">
-                                                      <!-- ngIf: icon -->
-                                                      <i ng-if="icon" class="text-center img-circle icon-close"></i>
-                                                      <!-- end ngIf: icon -->
-                                                      <h6 id="txtRegistrationMessage" class="ng-binding"></h6>
-                                                      <!-- ngIf: moreInfo -->
+                                                      <i class="text-center img-circle icon-close"></i>
+                                                      <h6 id="txtRegistrationMessage" ></h6>
                                                    </section>
                                                 </div>
                                              </div>
@@ -3157,10 +3137,10 @@
                                                    <div class="input-wrapper">
                                                       <input id="email-reg" name="email-reg" type="text" data-test-id="txtRegistrationEmail" required="" class="" pattern-type="email">
                                                       <label for="email-reg">
-                                                      <span class="ng-binding" data-translate="Email"></span>
+                                                      <span  data-translate="Email"></span>
                                                       </label>
                                                    </div>
-                                                   <cite id="txtRegistrationEmailMessage" style="display:none" class="ng-binding" data-translate="Please enter a valid email"></cite>
+                                                   <cite id="txtRegistrationEmailMessage" style="display:none"  data-translate="Please enter a valid email"></cite>
                                                 </div>
                                              </div>
                                           </div>
@@ -3170,10 +3150,10 @@
                                                    <div class="input-wrapper">
                                                       <input id="firstName" name="firstName" type="text" placeholder="" data-value="" data-test-id="txtRegistrationFirstName" required="" class="">
                                                       <label for="firstName">
-                                                      <span class="ng-binding" data-translate="First name"></span>
+                                                      <span  data-translate="First name"></span>
                                                       </label>
                                                    </div>
-                                                   <cite id="txtRegistrationFirstNameMessage" style="display:none" class="ng-binding" data-translate="Needs to be filled"></cite>
+                                                   <cite id="txtRegistrationFirstNameMessage" style="display:none"  data-translate="Needs to be filled"></cite>
                                                 </div>
                                              </div>
                                           </div>
@@ -3183,10 +3163,10 @@
                                                    <div class="input-wrapper">
                                                       <input id="lastName" name="lastName" type="text" placeholder="" data-value="" data-test-id="txtRegistrationLastName" required="" class="">
                                                       <label for="lastName">
-                                                      <span class="ng-binding" data-translate="Last name"></span>
+                                                      <span  data-translate="Last name"></span>
                                                       </label>
                                                    </div>
-                                                   <cite id="txtRegistrationLastNameMessage" style="display:none" class="ng-binding" data-translate="Needs to be filled"></cite>
+                                                   <cite id="txtRegistrationLastNameMessage" style="display:none"  data-translate="Needs to be filled"></cite>
                                                 </div>
                                              </div>
                                           </div>
@@ -3194,13 +3174,13 @@
                                              <div class="col-md-12">
                                                 <div class="standard-input text required" type="password" label="Password" test-id="RegistrationPassword" required="required">
                                                    <div class="input-wrapper">
-                                                      <input id="password-reg" name="password-reg" ng-model="ngModel" ng-blur="handleBlur($event)" ng-change="handleChange($event)" type="password" placeholder="" ng-disabled="disabled" data-value="" data-test-id="txtRegistrationPassword" required="" class="" pattern-type="password">
+                                                      <input id="password-reg" name="password-reg" type="password" placeholder="" data-test-id="txtRegistrationPassword" required="" class="" pattern-type="password">
                                                       <label for="password-reg">
-                                                      <span class="ng-binding" data-translate="Password"></span>
+                                                      <span data-translate="Password"></span>
                                                       </label>
                                                    </div>
-                                                   <cite id="txtRegistrationPasswordMessage" style="display:none" class="ng-binding" data-translate="Needs to be filled"></cite>
-                                                   <cite id="passwordErrorMessage" style="display:none" class="ng-binding" data-translate="Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."></cite>
+                                                   <cite id="txtRegistrationPasswordMessage" style="display:none" data-translate="Needs to be filled"></cite>
+                                                   <cite id="passwordErrorMessage" style="display:none"  data-translate="Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."></cite>
                                                 </div>
                                              </div>
                                           </div>
@@ -3210,109 +3190,64 @@
                                                    <div class="input-wrapper">
                                                       <input id="passwordConfirmation" name="email" type="password" placeholder="" data-test-id="txtRegistrationPasswordConfirm" required="" class="" pattern-type="retypepassword">
                                                       <label for="passwordConfirmation">
-                                                      <span class="ng-binding" data-translate="Retype password"></span>
+                                                      <span  data-translate="Retype password"></span>
                                                       </label>
                                                    </div>
-                                                   <cite id="txtRegistrationPasswordConfirmMessage" style="display:none" class="ng-binding" data-translate="Needs to be filled"></cite>
-                                                   <cite id="retypePasswordErrorMessage" style="display:none" class="ng-binding" data-translate="Must be same as password"></cite>
+                                                   <cite id="txtRegistrationPasswordConfirmMessage" style="display:none"  data-translate="Needs to be filled"></cite>
+                                                   <cite id="retypePasswordErrorMessage" style="display:none"  data-translate="Must be same as password"></cite>
                                                 </div>
                                              </div>
                                           </div>
                                           <div class="row">
-                                             <div class="col-sm-12 ng-isolate-scope" test-id="privacyPolicy">
-                                                <div class="standard-select-box ng-isolate-scope required" standard-select-box="" field="countryField" options="avaliableLanguages" on-change="onCountryChange" key="name" value="iso2" on-validate="countryField.validate()" error="" label="Country" placeholder="Country" required="required">
+                                             <div class="col-sm-12 " test-id="privacyPolicy">
+                                                <div class="standard-select-box  required" standard-select-box="" label="Country" placeholder="Country" required="required">
                                                    <div class="input-wrapper">
                                                       <select id="selectCountry" ng-model="field.value">
-                                                         <option value="" disabled="" style="display: none;" class="ng-binding" selected="selected" data-translate="Country"></option>
-                                                         <!-- ngRepeat: item in options -->
-                                                         <option value="ar" ng-repeat="item in options" class="ng-binding ng-scope">Argentina</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="au" ng-repeat="item in options" class="ng-binding ng-scope">Australia</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="at" ng-repeat="item in options" class="ng-binding ng-scope">Austria</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="be" ng-repeat="item in options" class="ng-binding ng-scope">Belgium</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="br" ng-repeat="item in options" class="ng-binding ng-scope">Brazil</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="bg" ng-repeat="item in options" class="ng-binding ng-scope">Bulgaria</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="ca" ng-repeat="item in options" class="ng-binding ng-scope">Canada</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="cl" ng-repeat="item in options" class="ng-binding ng-scope">Chile</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="cn" ng-repeat="item in options" class="ng-binding ng-scope">China</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="co" ng-repeat="item in options" class="ng-binding ng-scope">Colombia</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="cr" ng-repeat="item in options" class="ng-binding ng-scope">Costa Rica</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="hr" ng-repeat="item in options" class="ng-binding ng-scope">Croatia</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="dk" ng-repeat="item in options" class="ng-binding ng-scope">Denmark</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="ee" ng-repeat="item in options" class="ng-binding ng-scope">Estonia</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="fi" ng-repeat="item in options" class="ng-binding ng-scope">Finland</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="fr" ng-repeat="item in options" class="ng-binding ng-scope">France</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="de" ng-repeat="item in options" class="ng-binding ng-scope">Germany</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="gr" ng-repeat="item in options" class="ng-binding ng-scope">Greece</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="in" ng-repeat="item in options" class="ng-binding ng-scope">India</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="id" ng-repeat="item in options" class="ng-binding ng-scope">Indonesia</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="ie" ng-repeat="item in options" class="ng-binding ng-scope">Ireland</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="it" ng-repeat="item in options" class="ng-binding ng-scope">Italy</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="jp" ng-repeat="item in options" class="ng-binding ng-scope">Japan</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="lv" ng-repeat="item in options" class="ng-binding ng-scope">Latvia</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="lt" ng-repeat="item in options" class="ng-binding ng-scope">Lithuania</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="my" ng-repeat="item in options" class="ng-binding ng-scope">Malaysia</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="mx" ng-repeat="item in options" class="ng-binding ng-scope">Mexico</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="nl" ng-repeat="item in options" class="ng-binding ng-scope">Netherlands</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="nz" ng-repeat="item in options" class="ng-binding ng-scope">New Zealand</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="no" ng-repeat="item in options" class="ng-binding ng-scope">Norway</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="pe" ng-repeat="item in options" class="ng-binding ng-scope">Peru</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="pt" ng-repeat="item in options" class="ng-binding ng-scope">Portugal</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="ro" ng-repeat="item in options" class="ng-binding ng-scope">Romania</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="sa" ng-repeat="item in options" class="ng-binding ng-scope">Saudi Arabia</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="sg" ng-repeat="item in options" class="ng-binding ng-scope">Singapore</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="kr" ng-repeat="item in options" class="ng-binding ng-scope">South Korea</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="es" ng-repeat="item in options" class="ng-binding ng-scope">Spain</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="se" ng-repeat="item in options" class="ng-binding ng-scope">Sweden</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="ch" ng-repeat="item in options" class="ng-binding ng-scope">Switzerland</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="th" ng-repeat="item in options" class="ng-binding ng-scope">Thailand</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="tr" ng-repeat="item in options" class="ng-binding ng-scope">Turkey</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="ae" ng-repeat="item in options" class="ng-binding ng-scope">United Arab Emirates</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="gb" ng-repeat="item in options" class="ng-binding ng-scope">United Kingdom</option>
-                                                         <!-- end ngRepeat: item in options -->
-                                                         <option value="us" ng-repeat="item in options" class="ng-binding ng-scope">United States</option>
-                                                         <!-- end ngRepeat: item in options -->
+                                                         <option value="" disabled="" style="display: none;"  selected="selected" data-translate="Country"></option>
+                                                         <option value="ar"  >Argentina</option>
+                                                         <option value="au"  >Australia</option>
+                                                         <option value="at"  >Austria</option>
+                                                         <option value="be"  >Belgium</option>
+                                                         <option value="br"  >Brazil</option>
+                                                         <option value="bg"  >Bulgaria</option>
+                                                         <option value="ca"  >Canada</option>
+                                                         <option value="cl"  >Chile</option>
+                                                         <option value="cn"  >China</option>
+                                                         <option value="co"  >Colombia</option>
+                                                         <option value="cr"  >Costa Rica</option>
+                                                         <option value="hr"  >Croatia</option>
+                                                         <option value="dk"  >Denmark</option>
+                                                         <option value="ee"  >Estonia</option>
+                                                         <option value="fi"  >Finland</option>
+                                                         <option value="fr"  >France</option>
+                                                         <option value="de"  >Germany</option>
+                                                         <option value="gr"  >Greece</option>
+                                                         <option value="in"  >India</option>
+                                                         <option value="id"  >Indonesia</option>
+                                                         <option value="ie"  >Ireland</option>
+                                                         <option value="it"  >Italy</option>
+                                                         <option value="jp"  >Japan</option>
+                                                         <option value="lv"  >Latvia</option>
+                                                         <option value="lt"  >Lithuania</option>
+                                                         <option value="my"  >Malaysia</option>
+                                                         <option value="mx"  >Mexico</option>
+                                                         <option value="nl"  >Netherlands</option>
+                                                         <option value="nz"  >New Zealand</option>
+                                                         <option value="no"  >Norway</option>
+                                                         <option value="pe"  >Peru</option>
+                                                         <option value="pt"  >Portugal</option>
+                                                         <option value="ro"  >Romania</option>
+                                                         <option value="sa"  >Saudi Arabia</option>
+                                                         <option value="sg"  >Singapore</option>
+                                                         <option value="kr"  >South Korea</option>
+                                                         <option value="es"  >Spain</option>
+                                                         <option value="se"  >Sweden</option>
+                                                         <option value="ch"  >Switzerland</option>
+                                                         <option value="th"  >Thailand</option>
+                                                         <option value="tr"  >Turkey</option>
+                                                         <option value="ae"  >United Arab Emirates</option>
+                                                         <option value="gb"  >United Kingdom</option>
+                                                         <option value="us"  >United States</option>
                                                       </select>
                                                       <i class="icon-arrow-down-large arrow"></i>
                                                    </div>
@@ -3326,12 +3261,12 @@
                                                    <input id="privacyPolicyChkBox" pattern-type = "checkbox" type="checkbox"  
                                                      data-test-id="privacyPolicyCheckbox" required="" 
                                                       disabled="disabled">
-                                                   <label for="privacyPolicyChkBox" class="ng-binding" data-translate=" I accept the">                                      
+                                                   <label for="privacyPolicyChkBox"  data-translate=" I accept the">                                      
                                                    </label>
                                                    </span>
                                                    <span class="">
-                                                   <a ng-href="" data-test-id="privacyPolicyLink"
-                                                      target="_blank" hidden=true class="ng-binding ng-hide" href="">
+                                                   <a data-test-id="privacyPolicyLink"
+                                                      target="_blank" hidden=true  href="">
                                                    teamplay Data Privacy Policy
                                                    </a>
                                                    <span data-test-id="privacyPolicyText">teamplay Data Privacy Policy
@@ -3358,12 +3293,12 @@
                                               <iframe id="CaptchaFrame" onload="$('#captcha-spinner').css('visibility', 'hidden');" class="frame" height="172px" width="300px" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="false"  src="https://captcha-service-dev.test.teamplay.siemens.com/?LocaleCode=en-US"></iframe> 
                                             </div>
                                         </div>
-                                        <div style="display:none;" id="captchaValidationSuccess" class="ng-scope"><label style="color: green;font-size: 18px !important;font-weight: normal;" class="ng-binding" data-translate="Captcha validation successful !!"></label></div>
+                                        <div style="display:none;" id="captchaValidationSuccess" class=""><label style="color: green;font-size: 18px !important;font-weight: normal;"  data-translate="Captcha validation successful !!"></label></div>
                                      </div>
 
                                        <div class="row zero-margin-top">
                                           <div class="margin-top-24 margin-bottom-30 col-sm-6">
-                                             <a id="btn-signup" class="pull-left simple-button-color simple-button ng-binding ng-isolate-scope" ng-click="handleClick($event)" ng-disabled="isDisabled" data-test-id="UserRegistration " simple-button="" icon="icon-arrow-right-large" label="Register" on-click="registerModel.form.submit($event)" is-disabled="registerModel.form.isSubmitting" is-loading="registerModel.form.isSubmitting" tabindex="0" data-translate="Register">
+                                             <a id="btn-signup" class="pull-left simple-button-color simple-button ng-binding "  data-test-id="UserRegistration " simple-button="" icon="icon-arrow-right-large" label="Register" tabindex="0" data-translate="Register">
                                              <i class="icon-arrow-right-large"></i>
                                              </a>
                                              <input class="hidden" type="submit">
@@ -3373,7 +3308,6 @@
                                  </form>
                                 </div>
                               </div>
-                              <!-- end ngIf: !registerModel.isRegisrationSuccess -->
                            </div>
                      </div>
                      </span>
@@ -3385,7 +3319,7 @@
                <footer>
                   <div class="login-footer" style="display: inline-block; width: 100%;">
                      <div class="col-xs-12 col-sm-8 top-footer-link">
-                        ©
+                        �
                         <span>Siemens Healthcare GmbH 2017-2018,
                         <span data-translate="All Rights Reserved"></span>
                         </span>
@@ -3473,9 +3407,9 @@
                  'Registration': 'Enregistrement',
                  'Language': 'Langue',
                  'Email': 'Adresse e-mail',
-                 'Forgot password?': 'Mot de passe oublié?',
+                 'Forgot password?': 'Mot de passe oubli�?',
                  'Password': 'Mot de passe',
-                 'Must be same as password': 'Doit être identique au mot de passe',
+                 'Must be same as password': 'Doit �tre identique au mot de passe',
                  'or log in with your <a >Siemens Healthineers account</a>.': 'or log in with your <a >Compte Siemens Healthineers</a>.',
                  'Siemens Healthineers account': 'Compte Siemens Healthineers.',
                  'Dont have an account?': "Vous n'avez pas encore de compte ?",
@@ -3483,28 +3417,28 @@
                  'Siemens Healthineers account': 'Siemens Healthineers account',
                  'Corporate Information': 'Entreprise',
                  'Terms of Use': "Conditions d'utilisation",
-                 'Privacy Policy': 'Politique de confidentialité',
-                 'All Rights Reserved': 'Tous droits réservés',
+                 'Privacy Policy': 'Politique de confidentialit�',
+                 'All Rights Reserved': 'Tous droits r�serv�s',
                  'Register': 'Enregistrer',
                  'Register for your teamplay account in order to proceed.': 'Enregistrer le compte teamplay pour poursuivre.',
-                 'First name': 'Prénom',
+                 'First name': 'Pr�nom',
                  'Last name': 'Nom',
                  'Retype password': 'Retapez le mot de passe',
                  'Country': 'Pays',
                  " I accept the": "J'accepte les clauses suivantes",
                  'Please enter a valid email': 'Entrez une adresse e-mail valide',
-                 'Needs to be filled': 'À remplir',
-                 'Needs to be checked': 'À contrôler',
+                 'Needs to be filled': '� remplir',
+                 'Needs to be checked': '� contr�ler',
                  'Reset your password using your teamplay email address.': 'Reset your password using your teamplay email address.',
-                 'Reset password': 'Réinitialiser le mot de passe',
-                 'Reset your password using your teamplay email address.': 'Réinitialisez votre mot de passe en utilisant votre adresse e-mail teamplay.',
+                 'Reset password': 'R�initialiser le mot de passe',
+                 'Reset your password using your teamplay email address.': 'R�initialisez votre mot de passe en utilisant votre adresse e-mail teamplay.',
                  'Cancel': 'Annuler',
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
-                 "Back to log in": "Retour à la connexion",
-                 "A reset link has been sent to your email address": "Un lien de réinitialisation a été envoyé à votre adresse e-mail",
+                 "Back to log in": "Retour � la connexion",
+                 "A reset link has been sent to your email address": "Un lien de r�initialisation a �t� envoy� � votre adresse e-mail",
                  "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
-                 "Retype the characters from the picture:": "Recopiez les caractères de l'image :",
-                 "Captcha validation successful !!": "Validation Captcha réussie."
+                 "Retype the characters from the picture:": "Recopiez les caract�res de l'image :",
+                 "Captcha validation successful !!": "Validation Captcha r�ussie."
              },
              'de-DE': {
                  'Login': 'Anmeldung',
@@ -3512,9 +3446,9 @@
                  'Language': 'Sprache',
                  'Email': 'E-Mail',
                  'Forgot password?': 'Kennwort vergessen?',
-                 'Needs to be checked': 'Muss überprüft werden',
+                 'Needs to be checked': 'Muss �berpr�ft werden',
                  'Password': 'Kennwort',
-                 'Must be same as password': 'Muss mit dem Kennwort übereinstimmen',
+                 'Must be same as password': 'Muss mit dem Kennwort �bereinstimmen',
                  'or log in with your <a >Siemens Healthineers account</a>.': 'oder verwenden Sie Ihr <a >Siemens Healthineers-Konto.</a>.',
                  'Siemens Healthineers account': 'Siemens Healthineers account',
                  'Dont have an account?': 'Sie haben kein Konto?',
@@ -3522,210 +3456,210 @@
                  'Siemens Healthineers account': ' Ihr teamplay-Nutzerkonto erstellen.',
                  'Corporate Information': ' Unternehmensinformationen',
                  'Terms of Use': 'Nutzungsbedingungen',
-                 'Privacy Policy': 'Datenschutzerklärung',
+                 'Privacy Policy': 'Datenschutzerkl�rung',
                  'All Rights Reserved': 'Alle Rechte vorbehalten',
                  'Register': 'Registrieren',
-                 'Register for your teamplay account in order to proceed.': 'Registrieren Sie sich für ein teamplay-Nutzerkonto, um fortfahren zu können.',
+                 'Register for your teamplay account in order to proceed.': 'Registrieren Sie sich f�r ein teamplay-Nutzerkonto, um fortfahren zu k�nnen.',
                  'First name': 'Vorname',
                  'Last name': 'Nachname',
                  'Retype password': 'Kennwort wiederholen',
                  'Country': 'Land',
                  ' I accept the': 'Ich akzeptiere die',
-                 'Please enter a valid email': 'Bitte geben Sie eine gültige E-Mail-Adresse ein',
-                 'Needs to be filled': 'Muss ausgefüllt werden',
-                 'Reset password': 'Kennwort zurücksetzen',
-                 'Reset your password using your teamplay email address.': 'Setzen Sie Ihr Kennwort mithilfe Ihrer teamplay-E-Mail-Adresse zurück.',
+                 'Please enter a valid email': 'Bitte geben Sie eine g�ltige E-Mail-Adresse ein',
+                 'Needs to be filled': 'Muss ausgef�llt werden',
+                 'Reset password': 'Kennwort zur�cksetzen',
+                 'Reset your password using your teamplay email address.': 'Setzen Sie Ihr Kennwort mithilfe Ihrer teamplay-E-Mail-Adresse zur�ck.',
                  'Cancel': 'Abbrechen',
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
-                 "Back to log in": "Zurück zur Anmeldung",
-                 "A reset link has been sent to your email address": "Ein Link zum Zurücksetzen wurde an Ihre E-Mail-Adresse gesendet",
+                 "Back to log in": "Zur�ck zur Anmeldung",
+                 "A reset link has been sent to your email address": "Ein Link zum Zur�cksetzen wurde an Ihre E-Mail-Adresse gesendet",
                  "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
                  "Retype the characters from the picture:": "Zeichen aus dem Bild wiederholen:",
                  "Captcha validation successful !!": "Captcha-Validierung erfolgreich!"
              },
              'es-ES': {
-                 'Login': 'Inicio de sesión',
+                 'Login': 'Inicio de sesi�n',
                  'Registration': 'Registro',
                  'Language': 'Idioma',
-                 'Email': 'Correo electrónico',
+                 'Email': 'Correo electr�nico',
                  'Forgot password?': 'Forgot password?',
-                 'Password': 'Contraseña',
-                 'Must be same as password': '"Debe ser igual que la contraseña',
+                 'Password': 'Contrase�a',
+                 'Must be same as password': '"Debe ser igual que la contrase�a',
                  'Needs to be checked': 'Se debe comprobar',
-                 'or log in with your <a >Siemens Healthineers account</a>.': 'o inicie sesión con su  <a >Cuenta de Siemens Healthineers.</a>.',
+                 'or log in with your <a >Siemens Healthineers account</a>.': 'o inicie sesi�n con su  <a >Cuenta de Siemens Healthineers.</a>.',
                  'Siemens Healthineers account': 'Siemens Healthineers account',
                  'Dont have an account?': 'Sie haben kein Konto?',
                  'Get your teamplay account': 'Ihr teamplay-Nutzerkonto erstellen.',
-                 'Corporate Information': 'Información corporativa',
+                 'Corporate Information': 'Informaci�n corporativa',
                  'Terms of Use': 'Condiciones de uso',
-                 'Privacy Policy': 'Política de privacidad',
+                 'Privacy Policy': 'Pol�tica de privacidad',
                  'All Rights Reserved': 'Reservados todos los derechos',
                  'Register': 'Registrarse',
-                 'Register for your teamplay account in order to proceed.': 'Regístrese en su cuenta de teamplay para continuar.',
+                 'Register for your teamplay account in order to proceed.': 'Reg�strese en su cuenta de teamplay para continuar.',
                  'First name': 'Nombre',
                  'Last name': 'Apellidos',
-                 'Retype password': 'Volver a escribir contraseña',
-                 'Country': 'País',
+                 'Retype password': 'Volver a escribir contrase�a',
+                 'Country': 'Pa�s',
                  ' I accept the': ' Acepto',
-                 'Please enter a valid email': 'Introduzca un correo electrónico válido.',
+                 'Please enter a valid email': 'Introduzca un correo electr�nico v�lido.',
                  'Needs to be filled': 'Se debe rellenar',
-                 'Reset password': 'Restablecer la contraseña',
-                 'Reset your password using your teamplay email address.': 'Restablezca su contraseña usando su dirección de correo electrónico de teamplay.',
+                 'Reset password': 'Restablecer la contrase�a',
+                 'Reset your password using your teamplay email address.': 'Restablezca su contrase�a usando su direcci�n de correo electr�nico de teamplay.',
                  'Cancel': 'Cancelar',
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
-                 "Back to log in": "Volver al inicio de sesión",
-                 "A reset link has been sent to your email address": "Se ha enviado un vínculo de restablecimiento a su dirección de correo electrónico.",
+                 "Back to log in": "Volver al inicio de sesi�n",
+                 "A reset link has been sent to your email address": "Se ha enviado un v�nculo de restablecimiento a su direcci�n de correo electr�nico.",
                  "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
                  "Retype the characters from the picture:": "Copie los caracteres de la imagen:",
-                 "Captcha validation successful !!": "Validación correcta de Captcha."
+                 "Captcha validation successful !!": "Validaci�n correcta de Captcha."
              },
              'zh-HANS': {
-                 'Login': '登录',
-                 'Registration': '注册',
-                 'Language': '语言',
-                 'Email': '电子邮件',
-                 'Forgot password?': '忘记密码?',
-                 'Password': '密码',
-                 'Must be same as password': '必须与密码相同',
-                 'Needs to be checked': '需要检查',
-                 'or log in with your <a >Siemens Healthineers account</a>.': '或登录时使用:<a >Siemens Healthineers帐户.</a>.',
+                 'Login': '??',
+                 'Registration': '??',
+                 'Language': '??',
+                 'Email': '????',
+                 'Forgot password?': '?????',
+                 'Password': '??',
+                 'Must be same as password': '???????',
+                 'Needs to be checked': '????',
+                 'or log in with your <a >Siemens Healthineers account</a>.': '??????:<a >Siemens Healthineers??.</a>.',
                  'Siemens Healthineers account': 'Siemens Healthineers account',
-                 'Dont have an account?': '无帐户？',
-                 'Get your teamplay account': '获取teamplay帐户.',
+                 'Dont have an account?': '????',
+                 'Get your teamplay account': '??teamplay??.',
                  'Siemens Healthineers account': ' Ihr teamplay-Nutzerkonto erstellen.',
-                 'Corporate Information': ' 公司信息',
-                 'Terms of Use': '使用条款',
-                 'Privacy Policy': '隐私政策',
-                 'All Rights Reserved': ' 保留所有权利',
-                 'Register': '注册',
-                 'Register for your teamplay account in order to proceed.': '注册您的teamplay帐户以便继续.',
-                 'First name': '名字',
-                 'Last name': '姓氏',
-                 'Retype password': '重新输入密码',
-                 'Country': '国家/地区',
-                 ' I accept the': ' 我接受',
-                 'Please enter a valid email': '请输入有效的电子邮件',
-                 'Needs to be filled': '需要填充',
-                 'Reset password': '重置密码',
-                 'Reset your password using your teamplay email address.': '使用您的teamplay电子邮件地址重置密码。',
-                 'Cancel': '取消',
+                 'Corporate Information': ' ????',
+                 'Terms of Use': '????',
+                 'Privacy Policy': '????',
+                 'All Rights Reserved': ' ??????',
+                 'Register': '??',
+                 'Register for your teamplay account in order to proceed.': '????teamplay??????.',
+                 'First name': '??',
+                 'Last name': '??',
+                 'Retype password': '??????',
+                 'Country': '??/??',
+                 ' I accept the': ' ???',
+                 'Please enter a valid email': '??????????',
+                 'Needs to be filled': '????',
+                 'Reset password': '????',
+                 'Reset your password using your teamplay email address.': '????teamplay???????????',
+                 'Cancel': '??',
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
-                 "Back to log in": " 返回登录",
-                 "A reset link has been sent to your email address": "重置链接已发送至您的电子邮件地址",
+                 "Back to log in": " ????",
+                 "A reset link has been sent to your email address": "????????????????",
                  "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
-                 "Retype the characters from the picture:": "重新输入图片中的字符：",
-                 "Captcha validation successful !!": "Captcha验证成功！！"
+                 "Retype the characters from the picture:": "??????????:",
+                 "Captcha validation successful !!": "Captcha????!!"
              },
              'ja-JP': {
-                 'Login': 'ログイン',
-                 'Registration': '登録',
-                 'Language': '言語',
-                 'Email': 'Eメール',
-                 'Forgot password?': 'パスワードを忘れた場合?',
-                 'Password': 'パスワード',
-                 'Must be same as password': 'パスワードと同じである必要があります',
-                 'Needs to be checked': '要チェック',
-                 'or log in with your <a >Siemens Healthineers account</a>.': 'でログイン <a >Siemens Healthineersアカウント.</a>.',
+                 'Login': '????',
+                 'Registration': '??',
+                 'Language': '??',
+                 'Email': 'E???',
+                 'Forgot password?': '????????????',
+                 'Password': '?????',
+                 'Must be same as password': '??????????????????',
+                 'Needs to be checked': '?????',
+                 'or log in with your <a >Siemens Healthineers account</a>.': '????? <a >Siemens Healthineers?????.</a>.',
                  'Siemens Healthineers account': 'Siemens Healthineers account',
-                 'Dont have an account?': 'アカウントをお持ちではありませんか?',
-                 'Get your teamplay account': 'teamplayアカウントを登録してください。.',
+                 'Dont have an account?': '??????????????????',
+                 'Get your teamplay account': 'teamplay???????????????.',
                  'Siemens Healthineers account': ' Ihr teamplay-Nutzerkonto erstellen.',
-                 'Corporate Information': ' 企業情報',
-                 'Terms of Use': ' ご利用規約',
-                 'Privacy Policy': 'プライバシーに関する方針',
+                 'Corporate Information': ' ????',
+                 'Terms of Use': ' ?????',
+                 'Privacy Policy': '????????????',
                  'All Rights Reserved': 'All Rights Reserved',
-                 'Register': '登録',
-                 'Register for your teamplay account in order to proceed.': '続行するには、teamplayアカウントの登録を行ってください.',
-                 'First name': '名（ファーストネーム）',
-                 'Last name': '姓',
-                 'Retype password': 'パスワード再入力',
-                 'Country': '国',
-                 ' I accept the': '同意します',
-                 'Please enter a valid email': '有効なEメールアドレスを入力してください',
-                 'Needs to be filled': '要記入',
-                 'Reset password': 'パスワードをリセット',
-                 'Reset your password using your teamplay email address.': 'teamplayに登録されているeメールアドレスを使用してパスワードをリセットする',
-                 'Cancel': 'キャンセル',
+                 'Register': '??',
+                 'Register for your teamplay account in order to proceed.': '???????teamplay????????????????.',
+                 'First name': '?(????????)',
+                 'Last name': '?',
+                 'Retype password': '????????',
+                 'Country': '?',
+                 ' I accept the': '?????',
+                 'Please enter a valid email': '???E????????????????',
+                 'Needs to be filled': '???',
+                 'Reset password': '??????????',
+                 'Reset your password using your teamplay email address.': 'teamplay????????e????????????????????????',
+                 'Cancel': '?????',
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
-                 "Back to log in": "ログインに戻る",
-                 "A reset link has been sent to your email address": "リセットに使用するリンクが、あなたのEメールアドレスに送信されました。",
+                 "Back to log in": "???????",
+                 "A reset link has been sent to your email address": "??????????????????E????????????????",
                  "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
-                 "Retype the characters from the picture:": "画像の文字を入力し直してください。",
-                 "Captcha validation successful !!": "画像認証の検証が正常に実行されました。"
+                 "Retype the characters from the picture:": "?????????????????",
+                 "Captcha validation successful !!": "???????????????????"
              },
              'ko-KR': {
-                 'Login': '로그인',
-                 'Registration': '등록',
-                 'Language': '언어',
-                 'Email': '이메일',
-                 'Forgot password?': '비밀번호 찾기?',
-                 'Password': '비밀번호',
-                 'Must be same as password': '반드시 비밀번호와 같아야 합니다.',
-                 'Needs to be checked': '점검 필요',
-                 'or log in with your <a >Siemens Healthineers account</a>.': '또는 다음 정보로 로그인 <a >Siemens Healthineers 계정.</a>.',
+                 'Login': '???',
+                 'Registration': '??',
+                 'Language': '??',
+                 'Email': '???',
+                 'Forgot password?': '???? ???',
+                 'Password': '????',
+                 'Must be same as password': '??? ????? ??? ???.',
+                 'Needs to be checked': '?? ??',
+                 'or log in with your <a >Siemens Healthineers account</a>.': '?? ?? ??? ??? <a >Siemens Healthineers ??.</a>.',
                  'Siemens Healthineers account': 'Siemens Healthineers account',
-                 'Dont have an account?': '계정이 없으십니까?',
-                 'Get your teamplay account': 'teamplay 계정을 등록하세요.',
+                 'Dont have an account?': '??? ??????',
+                 'Get your teamplay account': 'teamplay ??? ?????.',
                  'Siemens Healthineers account': ' Ihr teamplay-Nutzerkonto erstellen.',
-                 'Corporate Information': ' 회사 정보 ',
-                 'Terms of Use': '사용 약관',
-                 'Privacy Policy': '개인 정보 보호 정책',
+                 'Corporate Information': ' ?? ?? ',
+                 'Terms of Use': '?? ??',
+                 'Privacy Policy': '?? ?? ?? ??',
                  'All Rights Reserved': 'All Rights Reserved',
-                 'Register': '등록',
-                 'Register for your teamplay account in order to proceed.': '계속 진행하려면 teamplay 계정을 등록하십시오..',
-                 'First name': '이름',
-                 'Last name': '성',
-                 'Retype password': '비밀번호 다시 입력',
-                 'Country': '국가',
-                 ' I accept the': '다음 내용에 동의함',
-                 'Please enter a valid email': ' 유효한 이메일을 입력하십시오.',
-                 'Needs to be filled': '기재 필요',
-                 'Reset password': '비밀번호 리셋',
-                 'Reset your password using your teamplay email address.': 'teamplay 이메일 주소를 사용하여 비밀번호를 리셋하십시오.',
-                 'Cancel': '취소',
+                 'Register': '??',
+                 'Register for your teamplay account in order to proceed.': '?? ????? teamplay ??? ??????..',
+                 'First name': '??',
+                 'Last name': '?',
+                 'Retype password': '???? ?? ??',
+                 'Country': '??',
+                 ' I accept the': '?? ??? ???',
+                 'Please enter a valid email': ' ??? ???? ??????.',
+                 'Needs to be filled': '?? ??',
+                 'Reset password': '???? ??',
+                 'Reset your password using your teamplay email address.': 'teamplay ??? ??? ???? ????? ??????.',
+                 'Cancel': '??',
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
-                 "Back to log in": "로그인으로 돌아가기",
-                 "A reset link has been sent to your email address": "이메일 주소로 리셋 링크를 보냈습니다.",
+                 "Back to log in": "????? ????",
+                 "A reset link has been sent to your email address": "??? ??? ?? ??? ?????.",
                  "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
-                 "Retype the characters from the picture:": "사진의 문자 다시 입력:",
-                 "Captcha validation successful !!": "Captcha 검증에 성공했습니다!!"
+                 "Retype the characters from the picture:": "??? ?? ?? ??:",
+                 "Captcha validation successful !!": "Captcha ??? ??????!!"
              },
              'tr-TR': {
-                 'Login': 'Oturum aç',
-                 'Registration': 'Kay ıt',
+                 'Login': 'Oturum a�',
+                 'Registration': 'Kay it',
                  'Language': 'Dil',
                  'Email': 'E-posta',
-                 'Forgot password?': 'Şifreyi unut?',
-                 'Password': 'Şifre',
-                 'Must be same as password': 'Şifreyle aynı olmalıdır',
+                 'Forgot password?': 'Sifreyi unut?',
+                 'Password': 'Sifre',
+                 'Must be same as password': 'Sifreyle ayni olmalidir',
                  'Needs to be checked': 'Kontrol edilmesi gerekiyor',
-                 'or log in with your <a >Siemens Healthineers account</a>.': 'veya kendinize ait <a >Siemens Healthineers hesabı ile giriş yapın.</a>.',
+                 'or log in with your <a >Siemens Healthineers account</a>.': 'veya kendinize ait <a >Siemens Healthineers hesabi ile giris yapin.</a>.',
                  'Siemens Healthineers account': 'Siemens Healthineers account',
-                 'Dont have an account?': 'Bir hesabınız yok mu?',
-                 'Get your teamplay account': ' teamplay hesabınızı alın.',
+                 'Dont have an account?': 'Bir hesabiniz yok mu?',
+                 'Get your teamplay account': ' teamplay hesabinizi alin.',
                  'Siemens Healthineers account': ' Ihr teamplay-Nutzerkonto erstellen.',
                  'Corporate Information': 'Kurumsal Bilgi',
-                 'Terms of Use': 'Kullanım Şartları',
-                 'Privacy Policy': 'Gizlilik Politikası',
-                 'All Rights Reserved': 'Tüm Hakları Saklıdır',
+                 'Terms of Use': 'Kullanim Sartlari',
+                 'Privacy Policy': 'Gizlilik Politikasi',
+                 'All Rights Reserved': 'T�m Haklari Saklidir',
                  'Register': 'Kaydolun',
-                 'Register for your teamplay account in order to proceed.': 'Devam etmek için teamplay hesabınıza kaydolun.',
+                 'Register for your teamplay account in order to proceed.': 'Devam etmek i�in teamplay hesabiniza kaydolun.',
                  'First name': 'Ad',
-                 'Last name': 'Soyadı',
-                 'Retype password': 'Şifreyi yeniden girin',
-                 'Country': 'Ülke',
-                 ' I accept the': 'Şunları kabul ediyorum:',
-                 'Please enter a valid email': 'Lütfen geçerli bir e-posta girin',
-                 'Needs to be filled': 'Doldurulması gerekiyor',
-                 'Reset password': 'Şifreyi sıfırla',
-                 'Reset your password using your teamplay email address.': 'teamplay hesabınızın e-posta adresini kullanarak şifrenizi sıfırlayın.',
-                 'Cancel': 'İptal',
+                 'Last name': 'Soyadi',
+                 'Retype password': 'Sifreyi yeniden girin',
+                 'Country': '�lke',
+                 ' I accept the': 'Sunlari kabul ediyorum:',
+                 'Please enter a valid email': 'L�tfen ge�erli bir e-posta girin',
+                 'Needs to be filled': 'Doldurulmasi gerekiyor',
+                 'Reset password': 'Sifreyi sifirla',
+                 'Reset your password using your teamplay email address.': 'teamplay hesabinizin e-posta adresini kullanarak sifrenizi sifirlayin.',
+                 'Cancel': 'Iptal',
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
-                 "Back to log in": " Girişe geri dön",
-                 "A reset link has been sent to your email address": "E-posta adresinize bir sıfırlama bağlantısı gönderildi",
+                 "Back to log in": " Girise geri d�n",
+                 "A reset link has been sent to your email address": "E-posta adresinize bir sifirlama baglantisi g�nderildi",
                  "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
-                 "Retype the characters from the picture:": "Resimdeki karakterleri yeniden yazın:",
-                 "Captcha validation successful !!": "Captcha validasyonu başarılı !!"
+                 "Retype the characters from the picture:": "Resimdeki karakterleri yeniden yazin:",
+                 "Captcha validation successful !!": "Captcha validasyonu basarili !!"
              }
          };
          var locales = [{
@@ -3738,7 +3672,7 @@
          }, {
              "LocaleId": 3,
              "LocaleCode": "fr-FR",
-             "LanguageName": "Français",
+             "LanguageName": "Fran�ais",
              "LanguageCode": "fr",
              "Country": "France",
              "CountryCode": "FR"
@@ -3752,35 +3686,35 @@
          }, {
              "LocaleId": 5,
              "LocaleCode": "es-ES",
-             "LanguageName": "Español",
+             "LanguageName": "Espa�ol",
              "LanguageCode": "es",
              "Country": "Spain",
              "CountryCode": "ES"
          }, {
              "LocaleId": 6,
              "LocaleCode": "zh-HANS",
-             "LanguageName": "中文",
+             "LanguageName": "??",
              "LanguageCode": "zh",
              "Country": "China",
              "CountryCode": "HANS"
          }, {
              "LocaleId": 7,
              "LocaleCode": "ja-JP",
-             "LanguageName": "日本語",
+             "LanguageName": "???",
              "LanguageCode": "ja",
              "Country": "Japan",
              "CountryCode": "JP"
          }, {
              "LocaleId": 8,
              "LocaleCode": "ko-KR",
-             "LanguageName": "한국어",
+             "LanguageName": "???",
              "LanguageCode": "ko",
              "Country": "Korea",
              "CountryCode": "KR"
          }, {
              "LocaleId": 9,
              "LocaleCode": "tr-TR",
-             "LanguageName": "Türkçe",
+             "LanguageName": "T�rk�e",
              "LanguageCode": "tr",
              "Country": "Turkey",
              "CountryCode": "TR"
@@ -4107,7 +4041,7 @@
              "priority": 0,
              "areaCodes": null
          }, {
-             "name": "Côte d’Ivoire",
+             "name": "C�te d�Ivoire",
              "iso2": "ci",
              "dialCode": "225",
              "priority": 0,
@@ -4125,7 +4059,7 @@
              "priority": 0,
              "areaCodes": null
          }, {
-             "name": "Curaçao",
+             "name": "Cura�ao",
              "iso2": "cw",
              "dialCode": "599",
              "priority": 0,
@@ -4839,7 +4773,7 @@
              "priority": 0,
              "areaCodes": null
          }, {
-             "name": "Réunion",
+             "name": "R�union",
              "iso2": "re",
              "dialCode": "262",
              "priority": 0,
@@ -4863,7 +4797,7 @@
              "priority": 0,
              "areaCodes": null
          }, {
-             "name": "Saint Barthélemy",
+             "name": "Saint Barth�lemy",
              "iso2": "bl",
              "dialCode": "590",
              "priority": 1,
@@ -4917,7 +4851,7 @@
              "priority": 0,
              "areaCodes": null
          }, {
-             "name": "São Tomé and Príncipe",
+             "name": "S�o Tom� and Pr�ncipe",
              "iso2": "st",
              "dialCode": "239",
              "priority": 0,
@@ -5247,7 +5181,7 @@
              "priority": 0,
              "areaCodes": null
          }, {
-             "name": "Åland Islands",
+             "name": "�land Islands",
              "iso2": "ax",
              "dialCode": "358",
              "priority": 1,
@@ -5260,7 +5194,6 @@
          var selectedCountry = "";
          var selectedCountryName = "";
          var selectedPrivacyPolicyId ="";
-
          getPrivacyPolicyList();
          
          function getPrivacyPolicyList() {
@@ -5378,7 +5311,6 @@
              var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
                 var eventWindow = window[eventMethod];
                 var messageEvent = eventMethod === "attachEvent" ? "onmessage" : "message";
-
                 //Get the Response from captcha server and sets the validate property
                 eventWindow(messageEvent, function (e) {
                     //Added this vaildation to ignore other messages from other service.
@@ -5397,8 +5329,6 @@
                        
                     }
                 }, false);
-
-
              function login(e) {
                  e.preventDefault();
          
@@ -5465,7 +5395,6 @@
                          Country: selectedCountryName,
                          is_teamplay_user: "true",
                          privacyPolicyId: String(selectedPrivacyPolicyId)
-
          
                      }
                  }, function(err) {
@@ -5625,7 +5554,6 @@
                  $('#LoginTab').click();
              }
              function resetRegistrationPage(){
-
               //reset fields
               document.getElementById('email-reg').value = "";
               document.getElementById('password-reg').value = "";
@@ -5637,7 +5565,6 @@
               $('[data-test-id="privacyPolicyLink"]').attr("hidden", true);
               $('#privacyPolicyChkBox').prop('checked',false);
               $("#privacyPolicyChkBox").attr("disabled", true);
-
               
               //reset captcha
               var captchaContainer=document.getElementById('holdsCaptcha');
@@ -5645,7 +5572,6 @@
               document.getElementById("captchaValue").value= "";
               var captchaValidationMessage =document.getElementById('captchaValidationSuccess');
               captchaValidationMessage.style.display='none';
-
              }
              $(document).ready(function() {
                  $('#login-form').on('submit', login);
@@ -5728,4 +5654,4 @@
          }
       </script>
    </body>
-</html>
+</html
