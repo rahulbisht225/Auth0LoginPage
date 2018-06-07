@@ -5459,10 +5459,11 @@
                      user_metadata: {
                          given_name: firstname,
                          family_name: lastname,
-                         LocaleId: currentLanguage.LocaleCode,
+                         locale_code: currentLanguage.LocaleCode,
+                         LocaleId: String(currentLanguage.LocaleId),
                          CaptchaResponse: captchaResponse,
                          Country: selectedCountryName,
-                         isTeamplayUser: "true",
+                         is_teamplay_user: "true",
                          privacyPolicyId: String(selectedPrivacyPolicyId)
 
          
