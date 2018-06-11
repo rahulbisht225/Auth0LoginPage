@@ -3355,7 +3355,6 @@
                                                     <div class="point"></div>
                                                  </div>
                                               </div>
-                                              <iframe id="CaptchaFrame" onload="$('#captcha-spinner').css('visibility', 'hidden');" class="frame" height="172px" width="300px" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="false"  src="https://captcha-service-dev.test.teamplay.siemens.com/?LocaleCode=en-US"></iframe> 
                                             </div>
                                         </div>
                                         <div style="display:none;" id="captchaValidationSuccess" class="ng-scope"><label style="color: green;font-size: 18px !important;font-weight: normal;" class="ng-binding" data-translate="Captcha validation successful !!"></label></div>
@@ -5260,8 +5259,13 @@
          var selectedCountry = "";
          var selectedCountryName = "";
          var selectedPrivacyPolicyId ="";
+         setSessionParams();
          getPrivacyPolicyList();
          
+        function hideCaptchaSpinner(currentElement){
+            $('#captcha-spinner').css('visibility', 'hidden');
+        }
+
          function getPrivacyPolicyList() {
              var policyFooterSelector = window.document.getElementById('policyCountrySelector');
              var xmlhttp = new XMLHttpRequest();
@@ -5293,15 +5297,24 @@
              xmlhttp.send();
          }
          
+        function renderCaptcha(parentElement, srcURL){
+            $(parentElement).append('<iframe id="CaptchaFrame-resetPassword" onload="hideCaptchaSpinner(this)" class="frame" height="172px" width="300px" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="false" ng-hide="configuration.status" src="'+srcURL+'"></iframe>');
+        }
+
          function translateStrings() {
              $("[data-translate]").each(function() {
                  var key = $(this).data('translate');
                  $(this).html(languageDictionary[currentLanguage.LocaleCode][key] || "N/A");
              });
              var captachServiceAddress = "https://captcha-service-dev.test.teamplay.siemens.com/?LocaleCode=" + currentLanguage.LocaleCode;
-             $("#CaptchaFrame").attr("src", captachServiceAddress);
+             if($("#CaptchaFrame").attr("src")){
+                $("#CaptchaFrame").attr("src", captachServiceAddress);
+             }
          }
-         translateStrings();
+         
+          var selectedLanguageId =  sessionStorage.getItem("currentLocaleId");
+         selectedLanguageId = selectedLanguageId? parseInt(selectedLanguageId):1;
+         $('[onchange="translatePage(this.value)"] option[value="'+selectedLanguageId+'"]').attr('selected', 'selected').trigger('change')
          
          function translatePage(currentLanguageId) {
              currentLanguages = locales.filter(function(langObj) {
@@ -5619,6 +5632,9 @@
                  $('#registerFormContainer').show();
                  $('#LoginTab').click();
              }
+
+             
+             
              function resetRegistrationPage(){
               //reset fields
               document.getElementById('email-reg').value = "";
@@ -5640,6 +5656,7 @@
               captchaValidationMessage.style.display='none';
              }
              $(document).ready(function() {
+                 renderCaptcha("#holdsCaptcha","https://captcha-service-dev.test.teamplay.siemens.com/?LocaleCode=" + currentLanguage.LocaleCode)
                  $('#login-form').on('submit', login);
                  $('#btn-login').on('click', login);
                  $('#register-form').on('submit', signup);
@@ -5718,6 +5735,76 @@
              }
              return true;
          }
+
+
+         //Setting session params like locale id, deeplinnk urls and tab to select on login page.
+         function setSessionParams(){
+             var redirectUri = getQueryString('redirect_uri', window.location.href);
+             redirectUri = decodeURIComponent(redirectUri);
+             var localeId = getQueryString('localeId',redirectUri);
+             var lang = getQueryString('lang',redirectUri);
+             var tabId = getQueryString('tab', redirectUri);
+             var messageId = getQueryString('messageId', redirectUri);
+             setLocalesToSession(lang,localeId);
+             if(tabId){
+                routeToSelectedTab(tabId);
+             }
+             if(messageId){
+                 displayMessage(messageId);
+             }
+             if(redirectUri.indexOf("#")!==-1){
+                 sessionStorage.setItem('deepLinkUrl', redirectUri);
+             }
+         }
+         var messageList = {};
+         function displayMessage(messageId){
+           var message =  messageList[messageId];
+           if(!message){
+               return "No message found";
+           }
+           return message;
+         }
+
+         function routeToSelectedTab(tabId){
+            switch(tabId){
+                case "Registration":sessionStorage.setItem('selectedTab', 'Registration');
+                                    document.getElementById('RegisterTab').click();
+                                    break;
+                case "NewPassword":sessionStorage.setItem('selectedTab', 'NewPassword');
+                //Need to route to new page.
+                    break;
+                default : sessionStorage.setItem('selectedTab', 'Login');
+                          document.getElementById('LoginTab').click();
+            }    
+         }
+
+        function setLocalesToSession(lang,localeId){
+            if(localeId){
+                 sessionStorage.setItem('currentLocaleId', localeId);
+             }else if(lang){
+                currentLanguages = locales.filter(function(langObj) {
+                    return langObj.LocaleId == lang;
+                });
+                if(currentLanguage.length>0){
+                    sessionStorage.setItem('currentLocaleId', currentLanguage[0].LocaleId);
+                }
+             }
+        }
+
+         /**
+             * Get the value of a querystring
+             * @param  {String} field The field to get the value of
+             * @param  {String} url   The URL to get the value from (optional)
+             * @return {String}       The field value
+             */
+           function getQueryString(field, url) {
+                var href = url ? url : window.location.href;
+                var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
+                var string = reg.exec(href);
+                return string ? string[1] : null;
+            };
+
+        //End Setting session params like locale id, deeplinnk urls and tab to select on login page.
       </script>
    </body>
 </html>
