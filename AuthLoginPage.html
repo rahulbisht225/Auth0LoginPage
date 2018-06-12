@@ -3041,7 +3041,7 @@
                                  <div class="row" style="display: none">
                                     <div captcha="" height="172px" width="300px" scrolling="false" class="col-sm-12 ">
                                        <div style="width:100%">
-                                          <div class="captchaHeadingLabel pull-left textopacity-sec ng-binding" style="width:100%;font-size: 18px !important; font-weight: normal !important; margin-bottom: 9px;" ng-show="!configuration.status">Retype the characters from the picture:</div>
+                                          <div class="captchaHeadingLabel pull-left textopacity-sec ng-binding" style="width:100%;font-size: 18px !important; font-weight: normal !important; margin-bottom: 9px;" ng-show="!configuration.status" data-translate="Retype the characters from the picture:"></div>
                                        </div>
                                        <div class="holdsCaptcha" style="position: relative;">
                                           <div id="captcha-spinner" class="page-splash" style="height: 172px; width: 300px; visibility: hidden;">
@@ -3050,7 +3050,7 @@
                                                 <div class="point"></div>
                                              </div>
                                           </div>
-                                          <iframe id="CaptchaFrame" onload="$('#captcha-spinner').css('visibility', 'hidden');" class="frame" height="172px" width="300px" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="false" ng-hide="configuration.status" src="https://captcha-service-formaltest.test.teamplay.siemens.com/?LocaleCode=en-US"></iframe>
+                                          <iframe id="CaptchaFrame-resetPassword" onload="$('#captcha-spinner').css('visibility', 'hidden');" class="frame" height="172px" width="300px" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="false" ng-hide="configuration.status" src="https://captcha-service-formaltest.test.teamplay.siemens.com/?LocaleCode=en-US"></iframe>
                                        </div>
                                     </div>
                                  </div>
@@ -3346,7 +3346,7 @@
                                        <div class="row">
                                         <div  id="holdsCaptcha" captcha="" height="172px" width="300px" scrolling="false" class="col-sm-12 ">
                                            <div style="width:100%">
-                                              <div class="captchaHeadingLabel pull-left textopacity-sec ng-binding" style="width:100%;font-size: 18px !important; font-weight: normal !important; margin-bottom: 9px;" ng-show="!configuration.status">Retype the characters from the picture:</div>
+                                              <div class="captchaHeadingLabel pull-left textopacity-sec ng-binding" style="width:100%;font-size: 18px !important; font-weight: normal !important; margin-bottom: 9px;" ng-show="!configuration.status" data-translate="Retype the characters from the picture:"></div>
                                            </div>
                                            <div  style="position: relative;">
                                               <div id="captcha-spinner" class="page-splash" style="height: 172px; width: 300px; visibility: hidden;">
@@ -3355,10 +3355,9 @@
                                                     <div class="point"></div>
                                                  </div>
                                               </div>
-                                              <iframe id="CaptchaFrame" onload="$('#captcha-spinner').css('visibility', 'hidden');" class="frame" height="172px" width="300px" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="false"  src="https://captcha-service-dev.test.teamplay.siemens.com/?LocaleCode=en-US"></iframe> 
                                             </div>
                                         </div>
-                                        <div style="display:none;" id="captchaValidationSuccess" class="ng-scope"><label style="color: green;font-size: 18px !important;font-weight: normal;" class="ng-binding">Captcha validation successful !! </label></div>
+                                        <div style="display:none;" id="captchaValidationSuccess" class="ng-scope"><label style="color: green;font-size: 18px !important;font-weight: normal;" class="ng-binding" data-translate="Captcha validation successful !!"></label></div>
                                      </div>
 
                                        <div class="row zero-margin-top">
@@ -3464,7 +3463,9 @@
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
                  "Back to log in": "Back to log in",
                  "A reset link has been sent to your email address": "A reset link has been sent to your email address",
-                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
+                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
+                 "Retype the characters from the picture:": "Retype the characters from the picture:",
+                 "Captcha validation successful !!": "Captcha validation successful !!"
              },
              'fr-FR': {
                  'Login': 'Connexion',
@@ -3500,7 +3501,9 @@
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
                  "Back to log in": "Retour à la connexion",
                  "A reset link has been sent to your email address": "Un lien de réinitialisation a été envoyé à votre adresse e-mail",
-                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
+                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
+                 "Retype the characters from the picture:": "Recopiez les caractères de l'image :",
+                 "Captcha validation successful !!": "Validation Captcha réussie."
              },
              'de-DE': {
                  'Login': 'Anmeldung',
@@ -3535,7 +3538,9 @@
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
                  "Back to log in": "Zurück zur Anmeldung",
                  "A reset link has been sent to your email address": "Ein Link zum Zurücksetzen wurde an Ihre E-Mail-Adresse gesendet",
-                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
+                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
+                 "Retype the characters from the picture:": "Zeichen aus dem Bild wiederholen:",
+                 "Captcha validation successful !!": "Captcha-Validierung erfolgreich!"
              },
              'es-ES': {
                  'Login': 'Inicio de sesión',
@@ -3569,7 +3574,9 @@
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
                  "Back to log in": "Volver al inicio de sesión",
                  "A reset link has been sent to your email address": "Se ha enviado un vínculo de restablecimiento a su dirección de correo electrónico.",
-                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
+                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
+                 "Retype the characters from the picture:": "Copie los caracteres de la imagen:",
+                 "Captcha validation successful !!": "Validación correcta de Captcha."
              },
              'zh-HANS': {
                  'Login': '登录',
@@ -3604,7 +3611,9 @@
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
                  "Back to log in": " 返回登录",
                  "A reset link has been sent to your email address": "重置链接已发送至您的电子邮件地址",
-                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
+                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
+                 "Retype the characters from the picture:": "重新输入图片中的字符：",
+                 "Captcha validation successful !!": "Captcha验证成功！！"
              },
              'ja-JP': {
                  'Login': 'ログイン',
@@ -3639,7 +3648,9 @@
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
                  "Back to log in": "ログインに戻る",
                  "A reset link has been sent to your email address": "リセットに使用するリンクが、あなたのEメールアドレスに送信されました。",
-                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
+                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
+                 "Retype the characters from the picture:": "画像の文字を入力し直してください。",
+                 "Captcha validation successful !!": "画像認証の検証が正常に実行されました。"
              },
              'ko-KR': {
                  'Login': '로그인',
@@ -3674,7 +3685,9 @@
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
                  "Back to log in": "로그인으로 돌아가기",
                  "A reset link has been sent to your email address": "이메일 주소로 리셋 링크를 보냈습니다.",
-                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
+                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
+                 "Retype the characters from the picture:": "사진의 문자 다시 입력:",
+                 "Captcha validation successful !!": "Captcha 검증에 성공했습니다!!"
              },
              'tr-TR': {
                  'Login': 'Oturum aç',
@@ -3709,7 +3722,9 @@
                  "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.": "No email received? Please check your spam filter or <a id='resendPasswordLink'> click here </a> to resend password.",
                  "Back to log in": " Girişe geri dön",
                  "A reset link has been sent to your email address": "E-posta adresinize bir sıfırlama bağlantısı gönderildi",
-                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters."
+                 "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.": "Your password is not strong enough. You can do better! Use minimum 8 characters including numbers, uppercase and lowercase and special characters.",
+                 "Retype the characters from the picture:": "Resimdeki karakterleri yeniden yazın:",
+                 "Captcha validation successful !!": "Captcha validasyonu başarılı !!"
              }
          };
          var locales = [{
@@ -5244,9 +5259,13 @@
          var selectedCountry = "";
          var selectedCountryName = "";
          var selectedPrivacyPolicyId ="";
-
+         setSessionParams();
          getPrivacyPolicyList();
          
+        function hideCaptchaSpinner(currentElement){
+            $('#captcha-spinner').css('visibility', 'hidden');
+        }
+
          function getPrivacyPolicyList() {
              var policyFooterSelector = window.document.getElementById('policyCountrySelector');
              var xmlhttp = new XMLHttpRequest();
@@ -5278,13 +5297,24 @@
              xmlhttp.send();
          }
          
+        function renderCaptcha(parentElement, srcURL){
+            $(parentElement).append('<iframe id="CaptchaFrame-resetPassword" onload="hideCaptchaSpinner(this)" class="frame" height="172px" width="300px" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="false" ng-hide="configuration.status" src="'+srcURL+'"></iframe>');
+        }
+
          function translateStrings() {
              $("[data-translate]").each(function() {
                  var key = $(this).data('translate');
                  $(this).html(languageDictionary[currentLanguage.LocaleCode][key] || "N/A");
              });
+             var captachServiceAddress = "https://captcha-service-dev.test.teamplay.siemens.com/?LocaleCode=" + currentLanguage.LocaleCode;
+             if($("#CaptchaFrame").attr("src")){
+                $("#CaptchaFrame").attr("src", captachServiceAddress);
+             }
          }
-         translateStrings();
+         
+          var selectedLanguageId =  sessionStorage.getItem("currentLocaleId");
+         selectedLanguageId = selectedLanguageId? parseInt(selectedLanguageId):1;
+         $('[onchange="translatePage(this.value)"] option[value="'+selectedLanguageId+'"]').attr('selected', 'selected').trigger('change')
          
          function translatePage(currentLanguageId) {
              currentLanguages = locales.filter(function(langObj) {
@@ -5360,7 +5390,6 @@
              var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
                 var eventWindow = window[eventMethod];
                 var messageEvent = eventMethod === "attachEvent" ? "onmessage" : "message";
-
                 //Get the Response from captcha server and sets the validate property
                 eventWindow(messageEvent, function (e) {
                     //Added this vaildation to ignore other messages from other service.
@@ -5379,8 +5408,6 @@
                        
                     }
                 }, false);
-
-
              function login(e) {
                  e.preventDefault();
          
@@ -5441,12 +5468,12 @@
                      user_metadata: {
                          given_name: firstname,
                          family_name: lastname,
-                         LocaleId: currentLanguage.LocaleCode,
+                         locale_code: currentLanguage.LocaleCode,
+                         LocaleId: String(currentLanguage.LocaleId),
                          CaptchaResponse: captchaResponse,
                          Country: selectedCountryName,
-
+                         is_teamplay_user: "true",
                          privacyPolicyId: String(selectedPrivacyPolicyId)
-
          
                      }
                  }, function(err) {
@@ -5605,14 +5632,21 @@
                  $('#registerFormContainer').show();
                  $('#LoginTab').click();
              }
-             function resetRegistrationPage(){
 
+             
+             
+             function resetRegistrationPage(){
               //reset fields
               document.getElementById('email-reg').value = "";
               document.getElementById('password-reg').value = "";
               document.getElementById('firstName').value = "";
               document.getElementById('lastName').value = "";
               document.getElementById('passwordConfirmation').value = "";
+              document.getElementById('selectCountry').selectedIndex = 0;
+              $('[data-test-id="privacyPolicyText"]').attr("hidden", false);
+              $('[data-test-id="privacyPolicyLink"]').attr("hidden", true);
+              $('#privacyPolicyChkBox').prop('checked',false);
+              $("#privacyPolicyChkBox").attr("disabled", true);
               
               //reset captcha
               var captchaContainer=document.getElementById('holdsCaptcha');
@@ -5620,9 +5654,9 @@
               document.getElementById("captchaValue").value= "";
               var captchaValidationMessage =document.getElementById('captchaValidationSuccess');
               captchaValidationMessage.style.display='none';
-
              }
              $(document).ready(function() {
+                 renderCaptcha("#holdsCaptcha","https://captcha-service-dev.test.teamplay.siemens.com/?LocaleCode=" + currentLanguage.LocaleCode)
                  $('#login-form').on('submit', login);
                  $('#btn-login').on('click', login);
                  $('#register-form').on('submit', signup);
@@ -5653,17 +5687,11 @@
                          method: "GET",
                      }).then(function(policyDocuments) {
                          if (policyDocuments && policyDocuments.length > 0) {
-                             var currentDocument = policyDocuments.filter(function(doc) {
-         
-                                 if (doc.Country.toLowerCase() === selectedCountryName.toLowerCase()) {
-                                    selectedPrivacyPolicyId = doc.Id;
-                                     $('[data-test-id="privacyPolicyLink"]').attr('href', doc.DocumentUrl);
-                                     $("#privacyPolicyChkBox").attr("disabled", false);
-                                     $('[data-test-id="privacyPolicyText"]').attr("hidden", true);
-                                     $('[data-test-id="privacyPolicyLink"]').attr("hidden", false);
-                                     return true;
-                                 }
-                             });
+                           selectedPrivacyPolicyId = policyDocuments[0].Id;
+                           $('[data-test-id="privacyPolicyLink"]').attr('href', policyDocuments[0].DocumentUrl);
+                           $("#privacyPolicyChkBox").attr("disabled", false);
+                           $('[data-test-id="privacyPolicyText"]').attr("hidden", true);
+                           $('[data-test-id="privacyPolicyLink"]').attr("hidden", false);
                          }
                      }, function(error) {
          
@@ -5707,6 +5735,76 @@
              }
              return true;
          }
+
+
+         //Setting session params like locale id, deeplinnk urls and tab to select on login page.
+         function setSessionParams(){
+             var redirectUri = getQueryString('redirect_uri', window.location.href);
+             redirectUri = decodeURIComponent(redirectUri);
+             var localeId = getQueryString('localeId',redirectUri);
+             var lang = getQueryString('lang',redirectUri);
+             var tabId = getQueryString('tab', redirectUri);
+             var messageId = getQueryString('messageId', redirectUri);
+             setLocalesToSession(lang,localeId);
+             if(tabId){
+                routeToSelectedTab(tabId);
+             }
+             if(messageId){
+                 displayMessage(messageId);
+             }
+             if(redirectUri.indexOf("#")!==-1){
+                 sessionStorage.setItem('deepLinkUrl', redirectUri);
+             }
+         }
+         var messageList = {};
+         function displayMessage(messageId){
+           var message =  messageList[messageId];
+           if(!message){
+               return "No message found";
+           }
+           return message;
+         }
+
+         function routeToSelectedTab(tabId){
+            switch(tabId){
+                case "Registration":sessionStorage.setItem('selectedTab', 'Registration');
+                                    document.getElementById('RegisterTab').click();
+                                    break;
+                case "NewPassword":sessionStorage.setItem('selectedTab', 'NewPassword');
+                //Need to route to new page.
+                    break;
+                default : sessionStorage.setItem('selectedTab', 'Login');
+                          document.getElementById('LoginTab').click();
+            }    
+         }
+
+        function setLocalesToSession(lang,localeId){
+            if(localeId){
+                 sessionStorage.setItem('currentLocaleId', localeId);
+             }else if(lang){
+                currentLanguages = locales.filter(function(langObj) {
+                    return langObj.LocaleId == lang;
+                });
+                if(currentLanguage.length>0){
+                    sessionStorage.setItem('currentLocaleId', currentLanguage[0].LocaleId);
+                }
+             }
+        }
+
+         /**
+             * Get the value of a querystring
+             * @param  {String} field The field to get the value of
+             * @param  {String} url   The URL to get the value from (optional)
+             * @return {String}       The field value
+             */
+           function getQueryString(field, url) {
+                var href = url ? url : window.location.href;
+                var reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i');
+                var string = reg.exec(href);
+                return string ? string[1] : null;
+            };
+
+        //End Setting session params like locale id, deeplinnk urls and tab to select on login page.
       </script>
    </body>
 </html>
