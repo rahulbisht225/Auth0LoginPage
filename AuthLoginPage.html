@@ -5346,7 +5346,11 @@
                  domain: config.auth0Domain,
                  clientID: config.clientID,
                  redirectUri: config.callbackURL,
-                 responseType: 'code'
+                 responseType: 'code',
+                 overrides: {
+                    __tenant: config.auth0Tenant,
+                    __token_issuer: config.auth0Domain
+                }
              }, config.internalOptions);
              var webAuth = new auth0.WebAuth(params);
              var clienttest = 'CESONLY';
