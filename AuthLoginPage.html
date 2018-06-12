@@ -5337,23 +5337,20 @@
              };
          }
          window.addEventListener('load', function() {
-             //unComment below mentioned code to work in local 
-          
-         var config = JSON.parse(
-          decodeURIComponent(escape(window.atob('eyJhc3NldHNVcmwiOiIiLCJhdXRoMERvbWFpbiI6InNoY3Rlc3QuYXV0aDAuY29tIiwiYXV0aDBUZW5hbnQiOiJzaGN0ZXN0IiwiY2xpZW50Q29uZmlndXJhdGlvbkJhc2VVcmwiOiJodHRwczovL2Nkbi5hdXRoMC5jb20vIiwiY2FsbGJhY2tPbkxvY2F0aW9uSGFzaCI6ZmFsc2UsImNhbGxiYWNrVVJMIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg1L2xvZ2luQXV0aDAuaHRtbCIsImNkbiI6Imh0dHBzOi8vc2RrLmF1dGgwLmNvbS8iLCJjbGllbnRJRCI6IjlNSUxBZFBKeEpVYXVaTXBtNmxQT3k0WFFBNVJyNGt3IiwiZGljdCI6eyJzaWduaW4iOnsidGl0bGUiOiJsb2NhbEJhc2VBcHAifX0sImV4dHJhUGFyYW1zIjp7InByb3RvY29sIjoib2F1dGgyIiwic2NvcGUiOiJvcGVuaWQiLCJhdWRpZW5jZSI6Imh0dHBzOi8vc2hjdGVzdC5hdXRoMC5jb20vdXNlcmluZm8iLCJub25jZSI6IkdLZVRhLmRhcXRWNWFLNFJuSDhYVi5PcWJTNkJ0dGlCIiwiYXV0aDBDbGllbnQiOiJleUp1WVcxbElqb2lZWFYwYURBdWFuTWlMQ0oyWlhKemFXOXVJam9pT1M0MUxqRWlmUT09IiwidGVuYW50Ijoic2hjdGVzdCIsInR5cGUiOiJ0b2tlbiBpZF90b2tlbiIsImNsaWVudElEIjoiOU1JTEFkUEp4SlVhdVpNcG02bFBPeTRYUUE1UnI0a3ciLCJyZWRpcmVjdFVSSSI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4NS9sb2dpbkF1dGgwLmh0bWwiLCJfY3NyZiI6InlGVDU4RXU2LWVGNDNDX0lqS0piMkF0MU5rNmM3Wm1CZHg1VSIsIl9pbnRzdGF0ZSI6ImRlcHJlY2F0ZWQiLCJzdGF0ZSI6InhrQjBDbk9wTUc3dVg0c0VreGNCcF9vdVBCblVma1QwIn0sImludGVybmFsT3B0aW9ucyI6eyJwcm90b2NvbCI6Im9hdXRoMiIsInNjb3BlIjoib3BlbmlkIiwiYXVkaWVuY2UiOiJodHRwczovL3NoY3Rlc3QuYXV0aDAuY29tL3VzZXJpbmZvIiwibm9uY2UiOiJHS2VUYS5kYXF0VjVhSzRSbkg4WFYuT3FiUzZCdHRpQiIsImF1dGgwQ2xpZW50IjoiZXlKdVlXMWxJam9pWVhWMGFEQXVhbk1pTENKMlpYSnphVzl1SWpvaU9TNDFMakVpZlE9PSIsInRlbmFudCI6InNoY3Rlc3QiLCJ0eXBlIjoidG9rZW4gaWRfdG9rZW4iLCJjbGllbnRJRCI6IjlNSUxBZFBKeEpVYXVaTXBtNmxQT3k0WFFBNVJyNGt3IiwicmVkaXJlY3RVUkkiOiJodHRwOi8vbG9jYWxob3N0OjgwODUvbG9naW5BdXRoMC5odG1sIiwiX2NzcmYiOiJ5RlQ1OEV1Ni1lRjQzQ19JaktKYjJBdDFOazZjN1ptQmR4NVUiLCJfaW50c3RhdGUiOiJkZXByZWNhdGVkIiwic3RhdGUiOiJ4a0IwQ25PcE1HN3VYNHNFa3hjQnBfb3VQQm5VZmtUMCJ9LCJ3aWRnZXRVcmwiOiJodHRwczovL2Nkbi5hdXRoMC5jb20vdzIvYXV0aDAtd2lkZ2V0LTUuMS5taW4uanMiLCJpc1RoaXJkUGFydHlDbGllbnQiOmZhbHNlLCJhdXRob3JpemF0aW9uU2VydmVyIjp7InVybCI6Imh0dHBzOi8vc2hjdGVzdC5hdXRoMC5jb20iLCJpc3N1ZXIiOiJodHRwczovL3NoY3Rlc3QuYXV0aDAuY29tLyJ9fQ==')))
-         );
-       /*
-             //Uncomment below mentioned code to work in auth0      
            
              var config = JSON.parse(
                  decodeURIComponent(escape(window.atob('@@config@@')))
              );
-*/         
-		 var params = Object.assign({
+
+		    var params = Object.assign({
                  domain: config.auth0Domain,
                  clientID: config.clientID,
                  redirectUri: config.callbackURL,
-                 responseType: 'code'
+                 responseType: 'code',
+                 overrides: {
+                    __tenant: config.auth0Tenant,
+                    __token_issuer: config.auth0Domain
+                }
              }, config.internalOptions);
              var webAuth = new auth0.WebAuth(params);
              var clienttest = 'CESONLY';
@@ -5380,9 +5377,9 @@
                  var samlp = _.find(strategies, function(s) {
                      return s.name === 'samlp';
                  });
-                 window.siemensDomains = _.union.apply(_, _.map(samlp.connections, function(c) {
+                 window.siemensDomains = samlp ? _.union.apply(_, _.map(samlp.connections, function(c) {
                      return c.domain_aliases;
-                 }));
+                 })) : [];
              };
              script.src = config.clientConfigurationBaseUrl + 'client/' + config.clientID + '.js?t' + new Date();
              document.getElementsByTagName('head')[0].appendChild(script);
